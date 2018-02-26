@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8" />
 	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	<link rel="stylesheet" type="text/css" href="public/css/style.css" />
 	<title>Ebook - Mon Nouveau livre</title>
 </head>
