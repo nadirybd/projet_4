@@ -14,8 +14,15 @@ class PostsController extends Controller
 	}
 
 	public function post(){
-		$post = $this->postsModel->select($_GET['id']);
-		$this->renderFrontend('post', compact('post'));
+		$max = $this->postsModel->max();
+
+		if(isset($_GET['id']) && intval($_GET['id']) && $_GET['id'] >= 1 && $_GET['id'] <= $max->maxId){
+			$post = $this->postsModel->select($_GET['id']);
+		} else {
+			$post = $this->postsModel->select($_GET['id'] = 1);
+		}
+		
+		$this->renderFrontend('post', compact('post', 'max'));
 	}
 
 	public static function getInstance(){

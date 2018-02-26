@@ -15,5 +15,5 @@ if($page === 'home'){
 	PostsController::getInstance()->home();
 }
 elseif ($page === 'post') {
-	PostsController::getInstance()->post($_GET['id']);
+	PostsController::getInstance()->post();
 }

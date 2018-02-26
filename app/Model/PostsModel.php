@@ -15,4 +15,9 @@ class PostsModel extends Model
 		$post = $this->MySql->query('SELECT id, title, content, DATE_FORMAT(creation_date, "%d/%m/%Y") as date_fr FROM posts WHERE id='. $id, true);
 		return $post;
 	}
+
+	public function max(){
+		$max = $this->MySql->query('SELECT MAX(id) as maxId FROM posts', true);
+		return $max;
+	}
 }
