@@ -8,15 +8,19 @@ class Controller
 	protected $postsModel;
 
 	/**
-	* __construct créee une instance de Posts en la stocke dans la * variable a$MySql;
+	* __construct crée une instance de Posts en la stocke dans la * variable a$MySql;
 	*/
 	public function __construct(){
-		if($this->model === null){
+		if($this->postsModel === null){
 			$this->postsModel = new \App\Model\PostsModel;
 		}
 	}
 
-	protected function render(){
-		
+	protected function renderFrontend($view, $array){
+		ob_start();
+		extract($array);
+		require ('View/frontend/'. $view .'.php');
+		$content = ob_get_clean();
+		require('View/templates/default.php');
 	}
 }
