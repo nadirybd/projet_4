@@ -23,24 +23,39 @@ class MysqlDatabase extends Database
 		return self::$_instance;
 	}
 
+	/**
+	* @param $statement prend en paramètre le statement
+	* @param $one prend en paramètre la variable $one qui renvoi true ou 
+	* false
+	* @return $data obj stdClass
+	*/
 	public function query($statement, $one = null){
 		$req = $this->getDb()->query($statement);
-		$req->setFetchMode(PDO::FETCH_OBJ);
 		if($one === null){
-			return $data = $req->fetchAll(PDO::FETCH_OBJ);
+			$data = $req->fetchAll(PDO::FETCH_OBJ);
+			return $data; 
 		} else {
-			return $data = $req->fetch(PDO::FETCH_OBJ);
+			$data = $req->fetch(PDO::FETCH_OBJ);
+			return $data; 
 		}
 	}
 
+	/**
+	* @param $statement str prend en paramètre le statement
+	* @param $attributes prend en paramètre les attributes à executer
+	* @param $one boolean prend en paramètre la variable $one qui renvoi 
+	* true ou false
+	* @return $data obj stdClass
+	*/
 	public function prepare($statement, $attributes, $one = null){
 		$req = $this->getDb()->prepare($statement);
-		$req->execute($attributes)
-		$req->setFetchMode(PDO::FETCH_OBJ);
+		$req->execute($attributes);
 		if($one === null){
-			return $data = $req->fetchAll(PDO::FETCH_OBJ);
+			$data = $req->fetchAll(PDO::FETCH_OBJ);
+			return $data; 
 		} else {
-			return $data = $req->fetch(PDO::FETCH_OBJ);
+			$data = $req->fetch(PDO::FETCH_OBJ);
+			return $data; 
 		}
 	}
 }

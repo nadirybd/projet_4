@@ -20,6 +20,10 @@ class Controller
 		}
 	}
 
+	/**
+	* @param $view str
+	* @param $array compact()
+	*/
 	protected function renderFrontend($view, $array){
 		ob_start();
 		extract($array);

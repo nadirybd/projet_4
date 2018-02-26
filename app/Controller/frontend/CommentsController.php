@@ -6,8 +6,14 @@ use Core\Controller\Controller;
 */
 class CommentsController extends Controller
 {
+	/**
+	* $_instance variable qui stocke une instance 
+	*/
 	private static $_instance;
 
+	/**
+	* Méthode comments qui affiche les commentaires par post
+	*/
 	public function comments(){
 		$max = $this->postsModel->max();
 
@@ -19,6 +25,9 @@ class CommentsController extends Controller
 		$this->renderFrontend('comments', compact('comments'));
 	}
 
+	/**
+	* @return l'instance stocké dans la variable $_instance
+	*/
 	public static function getInstance(){
 		if(self::$_instance === null){
 			return self::$_instance = new CommentsController();

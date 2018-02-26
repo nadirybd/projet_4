@@ -6,6 +6,9 @@ use Core\Controller\Controller;
 */
 class PostsController extends Controller
 {
+	/**
+	* $_instance variable qui stocke une instance 
+	*/
 	private static $_instance;
 
 	public function home(){
@@ -13,6 +16,10 @@ class PostsController extends Controller
 		$this->renderFrontend('home', compact('posts'));
 	}
 
+	/**
+	* Méthode post_comments qui affiche le post selectionné et les 
+	* commentaires par post
+	*/
 	public function post_comments(){
 		$max = $this->postsModel->max();
 
@@ -26,6 +33,9 @@ class PostsController extends Controller
 		$this->renderFrontend('post', compact('post', 'max', 'comments'));
 	}
 
+	/**
+	* @return l'instance stocké dans la variable $_instance
+	*/
 	public static function getInstance(){
 		if(self::$_instance === null){
 			return self::$_instance = new PostsController();

@@ -6,6 +6,10 @@ use Core\Model\Model;
 */
 class CommentsModel extends Model
 {
+	/**
+	* @param $id int
+	* @return $comments Obj stdClass
+	*/
  	public function showbyLimit($id){
  		$comments = $this->MySql->query('
  			SELECT comments.id, comments.pseudo, comments.comment, comments.post_id, DATE_FORMAT(comments.comment_date, "%d/%m/%Y à %Hh%imin%ss") as comment_dateFr, posts.id 
@@ -16,6 +20,10 @@ class CommentsModel extends Model
  		return $comments;
  	}
 
+ 	/**
+	* @param $id int
+	* @return $comments Obj stdClass
+	*/
  	public function selectByPost($id){
  		$comments = $this->MySql->query('
  			SELECT comments.id, comments.pseudo, comments.comment, comments.post_id, DATE_FORMAT(comments.comment_date, "%d/%m/%Y à %Hh%imin%ss") as comment_dateFr, posts.id 
