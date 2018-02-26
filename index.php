@@ -7,3 +7,7 @@ if(isset($_GET['p'])){
 } else {
 	$page = 'home'; 
 }
+
+if($page === 'home'){
+	
+}

@@ -1,4 +1,5 @@
 <?php
+use Core\Database\MysqlDatabase;
 /**
 * Class App qui gère des fonctionnalités générales de l'application
 */
@@ -10,9 +11,9 @@ class App
 	*/
 	public static function load(){
 		session_start();
-		require('Core/Autoloader.php');
-		Core\Autoloader::register();
 		require('Autoloader.php');
 		App\Autoloader::register();
+		require('Core/Autoloader.php');
+		Core\Autoloader::register();
 	}
 }

@@ -7,8 +7,19 @@ use \PDO;
 */
 class MysqlDatabase extends Database
 {
-	public function getDb(){
-		$db = new PDO('mysql:host='. $this->db_host .';dbname='. $this->db_name .';charset=utf8', $this->db_user, $this->db_pass);
-		return $db;
+ 	/**
+	* $_instance variable qui permettra de vérifier l'existance d'une 
+	* instance en cours (Si non de stocker l'instanciation) 
+	*/
+	private static $_instance;
+
+	/**
+	* @return self::$_instance qui stock une instanciation de MysqlDatabase
+	*/
+	public static function getInstance(){
+		if(self::$_instance === null){
+			return self::$_instance = new MysqlDatabase();
+		}
+		return self::$_instance;
 	}
 }
