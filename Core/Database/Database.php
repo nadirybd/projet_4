@@ -1,5 +1,6 @@
 <?php
 namespace Core\Database;
+use \PDO;
 /**
 * Class Database qui gère la connexion à la base de données
 */
@@ -37,7 +38,7 @@ class Database
 	* @return $db variable qui se connecte à la base de données
 	*/
 	public function getDb(){
-		$db = new PDO('mysql:host='. $this->db_host .';dbname='. $this->db_name .';charset=utf8', $this->db_user, $this->db_pass);
+		$db = new PDO('mysql:host='. $this->db_host .';dbname='. $this->db_name .';charset=utf8', $this->db_user, $this->db_pass, array (PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 		return $db;
 	}
 }

@@ -22,4 +22,10 @@ class MysqlDatabase extends Database
 		}
 		return self::$_instance;
 	}
+
+	public function query($statement){
+		$req = $this->getDb()->query($statement);
+		$data = $req->fetchAll(PDO::FETCH_OBJ);
+		return $data;
+	}
 }
