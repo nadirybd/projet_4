@@ -32,4 +32,15 @@ class MysqlDatabase extends Database
 			return $data = $req->fetch(PDO::FETCH_OBJ);
 		}
 	}
+
+	public function prepare($statement, $attributes, $one = null){
+		$req = $this->getDb()->prepare($statement);
+		$req->execute($attributes)
+		$req->setFetchMode(PDO::FETCH_OBJ);
+		if($one === null){
+			return $data = $req->fetchAll(PDO::FETCH_OBJ);
+		} else {
+			return $data = $req->fetch(PDO::FETCH_OBJ);
+		}
+	}
 }
