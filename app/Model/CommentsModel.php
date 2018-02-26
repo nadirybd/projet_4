@@ -33,4 +33,13 @@ class CommentsModel extends Model
  			WHERE posts.id = '. $id .' ORDER BY comment_dateFr DESC');
  		return $comments;
  	}
+
+ 	/**
+ 	* @param $attributes array
+ 	* @return $add stdClass
+ 	*/
+ 	public function add($attributes){
+ 		$add = $this->MySql->prepare('INSERT INTO comments(pseudo, comment, comment_date, post_id) VALUES (:pseudo, :comment, NOW(), :post_id)', $attributes);
+ 		return $add;
+ 	}
 }

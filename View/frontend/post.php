@@ -12,10 +12,10 @@
 
 <?php foreach($comments as $comment): ?>
 	<p>
-		<?= $comment->pseudo; ?><em> <?= $comment->comment_dateFr; ?></em>
+		<?= htmlspecialchars($comment->pseudo); ?><em> <?= $comment->comment_dateFr; ?></em>
 	</p>
 
-	<div><?= $comment->comment; ?></div>
+	<div><?= htmlspecialchars($comment->comment); ?></div>
 <?php endforeach; ?>
 
 <p><a href="index.php?p=comments&id=<?= $post->id; ?>">Voir tous les commentaires ...</a></p>

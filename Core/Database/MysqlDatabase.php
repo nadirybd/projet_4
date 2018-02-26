@@ -47,15 +47,8 @@ class MysqlDatabase extends Database
 	* true ou false
 	* @return $data obj stdClass
 	*/
-	public function prepare($statement, $attributes, $one = null){
+	public function prepare($statement, $attributes){
 		$req = $this->getDb()->prepare($statement);
 		$req->execute($attributes);
-		if($one === null){
-			$data = $req->fetchAll(PDO::FETCH_OBJ);
-			return $data; 
-		} else {
-			$data = $req->fetch(PDO::FETCH_OBJ);
-			return $data; 
-		}
 	}
 }

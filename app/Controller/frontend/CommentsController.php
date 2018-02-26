@@ -22,6 +22,16 @@ class CommentsController extends Controller
 		} else {
 			$comments = $this->commentsModel->selectByPost($_GET['id'] = 1);
 		}
+
+		if($_POST){
+			$this->commentsModel->add([
+				':post_id' => $_GET['id'],
+				':pseudo' => $_POST['pseudo'],
+				':comment' => $_POST['text']
+			]);
+			header('location: index.php?p=comments&id='. $_GET['id']);
+		}
+
 		$this->renderFrontend('comments', compact('comments'));
 	}
 
