@@ -1,5 +1,5 @@
 <?php
-namespace Core;
+namespace App;
 /**
 * Class Autoloader qui charge de façon dynamique les classes
 */
