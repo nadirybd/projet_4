@@ -1,27 +1,41 @@
-<h1><?= $post->title; ?></h1>
+<!-- Affichage du post -->
+<div id="post">
+	<h1><?= $post->title; ?></h1>
 
-<div><?= $post->content; ?></div>
-<p><em><?= $post->date_fr; ?></em></p>
-<div>
+	<div><?= $post->content; ?></div>
+	<p><em><?= $post->date_fr; ?></em></p>
+</div>
+
+<!-- Navigation entre les chapitres -->
+<div id="nav">
 	<?php if($_GET['id'] >= 1 && $_GET['id'] < $max->maxId ): ?>
-		<p><a href="index.php?p=post&id=<?= $post->id + 1; ?>">Voir le chapitre suivant</a> <i class="far fa-arrow-alt-circle-right"></i></p>
+		<div class="next"><a href="index.php?p=post&id=<?= $post->id + 1; ?>">Voir le chapitre suivant</a> <i class="far fa-arrow-alt-circle-right"></i></div>
 	<?php endif; if($_GET['id'] > 1): ?>
-		<p><i class="far fa-arrow-alt-circle-left"></i> <a href="index.php?p=post&id=<?= $post->id - 1; ?>"> Voir le chapitre précédent</a></p>
+		<div class="prev"><i class="far fa-arrow-alt-circle-left"></i> <a href="index.php?p=post&id=<?= $post->id - 1; ?>"> Voir le chapitre précédent</a></div>
 	<?php endif; ?>
 </div>
 
-<?php foreach($comments as $comment): ?>
-	<p>
-		<?= htmlspecialchars($comment->pseudo); ?><em> <?= $comment->comment_dateFr; ?></em>
-	</p>
+<!-- Affichage des 3 derniers commentaires -->
+<div id="comments">
+	<?php foreach($comments as $comment): ?>
+		<div class="comment">
+			<p>
+				<?= htmlspecialchars($comment->pseudo); ?> à posté :
+			</p>
 
-	<div><?= htmlspecialchars($comment->comment); ?></div>
-<?php endforeach; ?>
+			<div><?= htmlspecialchars($comment->comment); ?></div>
 
-<p><a href="index.php?p=comments&id=<?= $post->id; ?>">Voir tous les commentaires ...</a></p>
+			<p><em> <?= $comment->comment_dateFr; ?></em></p>
+		</div>
+	<?php endforeach; ?>
 
-<p>
-	<button>
-		<a href="index.php?p=comments&id=<?= $post->id; ?>">Ajouter un commentaire</a>
-	</button>
-</p>
+	<div class="more_comments">
+		<p><a href="index.php?p=comments&id=<?= $post->id; ?>">Voir tous les commentaires ...</a></p>
+
+		<p>
+			<button>
+				<a href="index.php?p=comments&id=<?= $post->id; ?>">Ajouter un commentaire</a>
+			</button>
+		</p>
+	</div>
+</div>

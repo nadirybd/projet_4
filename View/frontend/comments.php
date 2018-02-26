@@ -1,7 +1,16 @@
-<? foreach ($comments as $comment) : ?>
-	<p><?= $comment->pseudo; ?> <em><?= $comment->comment_dateFr;?></em></p>
-	<div><?= $comment->comment; ?></div>
-<? endforeach; ?>
+<div id="all_comments">
+	<? foreach ($comments as $comment) : ?>
+		<div class="comment">
+			<p>
+				<?= htmlspecialchars($comment->pseudo); ?> à posté :
+			</p>
+
+			<div><?= htmlspecialchars($comment->comment); ?></div>
+
+			<p><em> <?= $comment->comment_dateFr; ?></em></p>
+		</div>
+	<? endforeach; ?>
+</div>
 
 <form id="form-comment" method="post">
 	<p>
@@ -10,7 +19,7 @@
 	</p>
 	<p>
 		Votre commentaire : <br />
-		<textarea name="text" cols="40" rows="10"></textarea>
+		<textarea name="text" cols="60" rows="15"></textarea>
 	</p>
 	<button type="submit">Envoyer votre commentaire</button>
 </form>

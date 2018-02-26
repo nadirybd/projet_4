@@ -5,6 +5,8 @@ body
 {
 	margin: 0;
 	font-family: 'Merriweather', serif;
+	background: url(../images/img1.jpg);
+	background-attachment: fixed;
 }
 
 a
@@ -71,6 +73,122 @@ header nav p a:hover
 #content h1
 {
 	text-align: center;
+}
+
+/**************
+	ACCUEIL
+***************/
+
+#accueil h1
+{
+	margin-bottom: 100px;
+	background-color: #e5e6e8;
+	padding: 30px;
+}
+
+/**************
+	POST
+***************/
+
+#post h1
+{
+	margin-bottom: 100px;
+	background-color: #e5e6e8;
+	padding: 30px;
+}
+
+#post
+{
+	margin-bottom: 40px;
+}
+
+#nav
+{
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	margin-bottom: 70px;
+}
+
+/******************
+ LES COMMENTAIRES
+*******************/
+
+/* COMMENTS POST PAGE */
+
+.comment
+{
+	padding: 20px;
+	background-color: #e5e6e8;
+	margin-bottom: 10px;
+	border-radius: 5px;
+}
+
+.comment p:nth-child(3)
+{
+	text-align: right;
+	font-size: 0.9em;
+}
+
+.more_comments
+{
+	text-align: center;
+}
+
+.more_comments button a
+{
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.more_comments button
+{
+	padding: 10px 15px;
+	border: 1px solid #007bff;
+	background-color: transparent;
+	border-radius: 5px;
+}
+
+.more_comments button:hover
+{
+	background-color: #007bff;
+}
+.more_comments button:hover > a
+{
+	color: white;
+}
+
+/* COMMENT PAGE */
+
+#form-comment
+{
+	text-align: center;
+}
+
+#form-comment input
+{
+	border-radius: 5px;
+	border: 2px solid black;
+}
+#form-comment textarea
+{
+	border-radius: 5px;
+	border: 2px solid black;
+}
+
+#form-comment button
+{
+	padding: 10px 15px;
+	border: 1px solid #007bff;
+	background-color: transparent;
+	border-radius: 5px;
+	color: #007bff;
+}
+
+#form-comment button:hover
+{
+	background-color: #007bff;
+	color: white;
 }
 
 /*******************************************
