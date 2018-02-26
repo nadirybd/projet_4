@@ -9,7 +9,7 @@ class Model
 	protected $MySql;
 
 	/**
-	* __construct créee une instance de Mysqldatabase en la stocke dans la * variable a$MySql;
+	* __construct crée une instance de Mysqldatabase en la stocke dans la * variable a$MySql;
 	*/
 	public function __construct(){
 		if($this->MySql === null){

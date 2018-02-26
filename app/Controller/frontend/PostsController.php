@@ -8,13 +8,14 @@ class PostsController extends Controller
 {
 	private static $_instance;
 
-	public function index(){
-		ob_start();
+	public function home(){
 		$posts = $this->postsModel->all();
-		compact('posts');
-		require('View/frontend/home.php');
-		$content = ob_get_clean();
-		require('View/templates/default.php');
+		$this->renderFrontend('home', compact('posts'));
+	}
+
+	public function post(){
+		$post = $this->postsModel->select($_GET['id']);
+		$this->renderFrontend('post', compact('post'));
 	}
 
 	public static function getInstance(){

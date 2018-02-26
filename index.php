@@ -12,5 +12,8 @@ if(isset($_GET['p'])){
 }
 
 if($page === 'home'){
-	PostsController::getInstance()->index();
+	PostsController::getInstance()->home();
+}
+elseif ($page === 'post') {
+	PostsController::getInstance()->post($_GET['id']);
 }
