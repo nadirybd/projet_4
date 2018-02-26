@@ -1,4 +1,4 @@
-<h1>Les chapitres</h1>
+<h1>Accueil - Liste des chapitres</h1>
 
 <?php foreach ($posts as $post): ?>
 	<h2><?= $post->title; ?></h2>

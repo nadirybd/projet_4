@@ -4,6 +4,7 @@ require('app/App.php');
 App::load();
 
 use App\Controller\Frontend\PostsController;
+use App\Controller\Frontend\CommentsController;
 
 if(isset($_GET['p'])){
 	$page = $_GET['p'];
@@ -16,4 +17,7 @@ if($page === 'home'){
 }
 elseif ($page === 'post') {
 	PostsController::getInstance()->post_comments();
+}
+elseif ($page === 'comments') {
+	CommentsController::getInstance()->comments();
 }

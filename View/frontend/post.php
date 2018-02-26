@@ -17,3 +17,11 @@
 
 	<div><?= $comment->comment; ?></div>
 <?php endforeach; ?>
+
+<p><a href="index.php?p=comments&id=<?= $post->id; ?>">Voir tous les commentaires ...</a></p>
+
+<p>
+	<button>
+		<a href="index.php?p=comments&id=<?= $post->id; ?>">Ajouter un commentaire</a>
+	</button>
+</p>

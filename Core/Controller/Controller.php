@@ -20,7 +20,7 @@ class Controller
 		}
 	}
 
-	protected function render($view, $array){
+	protected function renderFrontend($view, $array){
 		ob_start();
 		extract($array);
 		require('View/frontend/'. $view .'.php');
