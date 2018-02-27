@@ -1,9 +1,9 @@
 <h1>Mon administration</h1>
 <section id="admin-page">
 	<aside>
-			<p><a href="">Modifier les articles</a></p>
+			<p><a href="index.php?p=admin.posts">Modifier les articles</a></p>
 			<p><a href="">Ajouter un article</a></p>
-			<p><a href="">Gérer votre compte</a></p>
+			<p><a href="">Gérez votre compte</a></p>
 	</aside>
 
 	<table>
@@ -22,7 +22,12 @@
 					<td><?= $comment->report_id; ?></td>
 					<td><?= $comment->pseudo; ?></td>
 					<td><?= $comment->comment; ?></td>
-					<td><button>Supprimer</button></td>
+					<td>
+						<form method="post">
+							<input type="hidden" name="delete" value="<?= $comment->id; ?>" />
+							<input type="submit" name="send_delete" value="Supprimer" />
+						</form>
+					</td>
 				</tr>
 			<?php endforeach ?>
 		</tbody>

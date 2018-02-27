@@ -10,6 +10,10 @@ class AdCommentsController extends Controller
 
 	public function admin(){
 		$comments = $this->commentsModel->selectByReport();
+		if(isset($_POST['send_delete'])){
+			$this->commentsModel->delete([$_POST['delete']]);
+			header('location: index.php?p=admin');
+		}
 		$this->renderBackend('admin', compact('comments'));
 	}
 

@@ -62,4 +62,13 @@ class CommentsModel extends Model
  		$report = $this->MySql->prepare('UPDATE comments SET report_id =report_id + 1 WHERE id= ?', $attributes);
  		return $report;
  	}
+
+ 	/**
+ 	* @param $attributes array
+ 	* @return $delete stdClass
+ 	*/
+ 	public function delete($attributes){
+ 		$delete = $this->MySql->prepare('DELETE FROM comments WHERE id= ?', $attributes);
+ 		return $delete;
+ 	}
 }
