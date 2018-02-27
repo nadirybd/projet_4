@@ -1,17 +1,20 @@
-<?php if($error === true): ?>
+<div id="login">
+	<h1>Connexion à l'administration</h1>
+	<?php if($error === true): ?>
 
-<p><strong>Identifiant incorrect</strong></p>
+	<p><strong>Identifiant incorrect</strong></p>
 
-<?php endif; ?>
+	<?php endif; ?>
 
-<form id="login-form" method="post">
-	<p>
-		<label>Nom de l'administrateur :</label><br />
-		<input type="pseudo" name="user" />
-	</p>
-	<p>
-		<label>Mot de passe :</label><br />
-		<input type="password" name="pass">
-	</p>
-	<p><button type="submit">Se connecter</button></p>
-</form>
+	<form id="login-form" method="post">
+		<p>
+			<label>Nom de l'administrateur :</label><br />
+			<input type="pseudo" name="user" />
+		</p>
+		<p>
+			<label>Mot de passe :</label><br />
+			<input type="password" name="pass">
+		</p>
+		<p><button type="submit">Se connecter</button></p>
+	</form>
+</div>
