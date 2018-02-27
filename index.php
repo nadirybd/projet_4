@@ -35,8 +35,10 @@ elseif(strpos($page, 'admin') === 0){
 
 		if($page === 'admin'){
 			AdPostsController::getInstance()->admin();
+		}  elseif ($page === 'admin.disconnect') {
+			UserController::getInstance()->disconnect();
 		}
-		
+
 	} else {
 		UserController::getInstance()->forbidden();
 	}

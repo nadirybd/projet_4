@@ -28,6 +28,12 @@ class UserController extends Controller
 		$this->renderUser('forbidden');
 	}
 
+	public function disconnect(){
+		unset($_SESSION['auth']);
+		header('location: index.php');
+		$this->renderUser('disconnect');
+	}
+
 	/**
 	* @return l'instance stocké dans la variable $_instance
 	*/
