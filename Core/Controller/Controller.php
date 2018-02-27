@@ -7,6 +7,7 @@ class Controller
 {
 	protected $postsModel;
 	protected $commentsModel;
+	protected $auth;
 
 	/**
 	* __construct crée une instance de Posts en la stocke dans la * variable a$MySql;
@@ -18,6 +19,9 @@ class Controller
 		if($this->commentsModel === null){
 			$this->commentsModel = new \App\Model\CommentsModel;
 		}
+		if($this->auth === null){
+			$this->auth = new \App\Model\User\Auth;
+		}
 	}
 
 	/**
@@ -28,6 +32,18 @@ class Controller
 		ob_start();
 		extract($array);
 		require('View/frontend/'. $view .'.php');
+		$content = ob_get_clean();
+		require('View/templates/default.php');
+	}
+
+	/**
+	* @param $view str
+	* @param $array compact()
+	*/
+	protected function renderUser($view, $array){
+		ob_start();
+		extract($array);
+		require('View/user/'. $view .'.php');
 		$content = ob_get_clean();
 		require('View/templates/default.php');
 	}

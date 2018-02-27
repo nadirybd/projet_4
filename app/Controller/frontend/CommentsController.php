@@ -16,7 +16,7 @@ class CommentsController extends Controller
 	*/
 	public function comments(){
 		$max = $this->postsModel->max();
-
+		
 		if(isset($_GET['id']) && intval($_GET['id']) && $_GET['id'] >= 1 && $_GET['id'] <= $max->maxId){
 			$comments = $this->commentsModel->selectByPost($_GET['id']);
 		} else {

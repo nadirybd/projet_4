@@ -4,13 +4,14 @@ App::load();
 
 use App\Controller\Frontend\PostsController;
 use App\Controller\Frontend\CommentsController;
+use App\Controller\User\UserController;
 
 if(!empty($_GET['p']) && isset($_GET['p'])){
 	$page = $_GET['p'];
 } else {
 	$page = 'home'; 
 }
- 
+
 if($page === 'home'){
 	PostsController::getInstance()->home();
 }
@@ -19,4 +20,7 @@ elseif ($page === 'post') {
 }
 elseif ($page === 'comments') {
 	CommentsController::getInstance()->comments();
+}
+elseif ($page === 'login') {
+	UserController::getInstance()->login();
 }
