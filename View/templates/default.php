@@ -14,8 +14,8 @@
 			<p><a href="index.php">Accueil</a></p>
 			<?php if(isset($_SESSION['auth'])){
 			?>
-				<p><a href="admin.php">Accéder à l'administration</a></p>
-				<p><a href="admin.php?p=disconnect">Se déconnecter</a></p>
+				<p><a href="index.php?p=admin">Accéder à l'administration</a></p>
+				<p><a href="index.php?p=admin.disconnect">Se déconnecter</a></p>
 			<?php
 			}
 			else{

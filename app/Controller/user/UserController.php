@@ -1,5 +1,6 @@
 <?php
 namespace App\Controller\User;
+
 use Core\Controller\Controller;
 /**
 * Class UserController
@@ -21,6 +22,10 @@ class UserController extends Controller
 			}
 		}
 		$this->renderUser('login', compact('error'));
+	}
+
+	public function forbidden(){
+		$this->renderUser('forbidden');
 	}
 
 	/**

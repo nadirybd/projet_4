@@ -2,14 +2,20 @@
 require('app/App.php');
 App::load();
 
+use App\Controller\User\UserController;
+
 use App\Controller\Frontend\PostsController;
 use App\Controller\Frontend\CommentsController;
-use App\Controller\User\UserController;
+
+use App\Controller\Backend\AdPostsController;
+
+use App\Model\User\Auth;
+$user = new Auth();
 
 if(!empty($_GET['p']) && isset($_GET['p'])){
 	$page = $_GET['p'];
 } else {
-	$page = 'home'; 
+	$page = 'home';
 }
 
 if($page === 'home'){
@@ -23,4 +29,15 @@ elseif ($page === 'comments') {
 }
 elseif ($page === 'login') {
 	UserController::getInstance()->login();
+}
+elseif(strpos($page, 'admin') === 0){
+	if($user->logged()){
+
+		if($page === 'admin'){
+			AdPostsController::getInstance()->admin();
+		}
+		
+	} else {
+		UserController::getInstance()->forbidden();
+	}
 }

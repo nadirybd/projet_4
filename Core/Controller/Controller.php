@@ -40,9 +40,23 @@ class Controller
 	* @param $view str
 	* @param $array compact()
 	*/
-	protected function renderUser($view, $array){
+	protected function renderBackend($view, $array){
 		ob_start();
 		extract($array);
+		require('View/backend/'. $view .'.php');
+		$content = ob_get_clean();
+		require('View/templates/default.php');
+	}
+
+	/**
+	* @param $view str
+	* @param $array compact()
+	*/
+	protected function renderUser($view, $array = null){
+		ob_start();
+		if($array !== null){
+			extract($array);
+		}
 		require('View/user/'. $view .'.php');
 		$content = ob_get_clean();
 		require('View/templates/default.php');
