@@ -230,9 +230,96 @@ header nav p a:hover
 #login-form button:hover
 {
 	background-color: white;
-	border: 2px solid 343a40;
+	border: 2px solid #343a40;
 	color: #343a40;
 	font-weight: bold;
+}
+
+
+/*******************************************
+*               ADMIN
+*********************************************/
+
+/*************
+   forbidden
+**************/
+#forbidden
+{
+	text-align: center;
+	border: 5px solid #343a40;
+}
+
+#forbidden h2 .fa-exclamation-triangle
+{
+	color: red;
+}
+
+#forbidden p 
+{
+	font-weight: bold;
+}
+
+/*************
+   admin home
+**************/
+
+#admin-page
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+#admin-page aside
+{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 50px;
+}
+
+#admin-page aside p
+{
+	margin: 5px;
+}
+
+#admin-page p a
+{
+	display: block;
+	padding: 10px 20px;
+	border: 1px solid #007bff;
+	background-color: transparent;
+	border-radius: 5px;
+	color: #007bff;
+	cursor: pointer;
+	text-align: center;
+}
+
+#admin-page a:hover
+{
+	background-color: #007bff;
+	color: white;
+	color: white;
+	text-decoration: none;
+}
+
+table
+{
+	width: 100%;
+	border-collapse: collapse;
+	border: 2px solid #343a40;
+}
+
+table tbody tr, td
+{
+	border: 2px solid #343a40;
+	padding: 15px;
+}
+
+table thead
+{
+	background-color: #343a40;
+	color: white;
+	padding: 20px;
 }
 
 /*******************************************

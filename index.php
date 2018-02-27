@@ -8,6 +8,7 @@ use App\Controller\Frontend\PostsController;
 use App\Controller\Frontend\CommentsController;
 
 use App\Controller\Backend\AdPostsController;
+use App\Controller\Backend\AdCommentsController;
 
 use App\Model\User\Auth;
 $user = new Auth();
@@ -34,8 +35,9 @@ elseif(strpos($page, 'admin') === 0){
 	if($user->logged()){
 
 		if($page === 'admin'){
-			AdPostsController::getInstance()->admin();
-		}  elseif ($page === 'admin.disconnect') {
+			AdCommentsController::getInstance()->admin();
+		}  
+		elseif ($page === 'admin.disconnect') {
 			UserController::getInstance()->disconnect();
 		}
 

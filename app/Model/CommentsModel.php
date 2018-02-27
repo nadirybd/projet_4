@@ -33,6 +33,18 @@ class CommentsModel extends Model
  			WHERE posts.id = '. $id .' ORDER BY comment_dateFr DESC');
  		return $comments;
  	}
+ 	
+ 	/**
+	* @param $report_id int
+	* @return $comments Obj stdClass
+	*/
+ 	public function selectByReport(){
+ 		$comments_report = $this->MySql->query('
+ 			SELECT comments.id, comments.report_id, comments.pseudo, comments.comment
+ 			FROM comments 
+ 			WHERE report_id > 0 ORDER BY report_id DESC');
+ 		return $comments_report;
+ 	}
 
  	/**
  	* @param $attributes array
