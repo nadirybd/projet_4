@@ -30,6 +30,10 @@ class PostsController extends Controller
 			$post = $this->postsModel->select($_GET['id'] = 1);
 			$comments = $this->commentsModel->showByLimit($_GET['id'] = 1);
 		}
+		if($_POST){
+			$this->commentsModel->report([$_POST['report']]);
+		}
+
 		$this->renderFrontend('post', compact('post', 'max', 'comments'));
 	}
 

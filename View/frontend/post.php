@@ -9,9 +9,17 @@
 <!-- Navigation entre les chapitres -->
 <div id="nav">
 	<?php if($_GET['id'] >= 1 && $_GET['id'] < $max->maxId ): ?>
-		<div class="next"><a href="index.php?p=post&id=<?= $post->id + 1; ?>">Voir le chapitre suivant</a> <i class="far fa-arrow-alt-circle-right"></i></div>
+
+		<div class="next">
+			<a href="index.php?p=post&id=<?= $post->id + 1; ?>">Voir le chapitre suivant</a> 
+			<i class="far fa-arrow-alt-circle-right"></i>
+		</div>
+	
 	<?php endif; if($_GET['id'] > 1): ?>
-		<div class="prev"><i class="far fa-arrow-alt-circle-left"></i> <a href="index.php?p=post&id=<?= $post->id - 1; ?>"> Voir le chapitre précédent</a></div>
+		<div class="prev">
+			<i class="far fa-arrow-alt-circle-left"></i> 
+			<a href="index.php?p=post&id=<?= $post->id - 1; ?>"> Voir le chapitre précédent</a>
+		</div>
 	<?php endif; ?>
 </div>
 
@@ -26,16 +34,17 @@
 			<div><?= htmlspecialchars($comment->comment); ?></div>
 
 			<p><em> <?= $comment->comment_dateFr; ?></em></p>
+
+			<form class="report" method="post">
+				<input type="hidden" name="report" value="<?= $comment->comment_id; ?>" />
+				<input type="submit" name="send_report" value="Signaler"/>
+			</form>
 		</div>
 	<?php endforeach; ?>
 
 	<div class="more_comments">
 		<p><a href="index.php?p=comments&id=<?= $post->id; ?>">Voir tous les commentaires ...</a></p>
 
-		<p>
-			<button>
-				<a href="index.php?p=comments&id=<?= $post->id; ?>">Ajouter un commentaire</a>
-			</button>
-		</p>
+		<p><a class="button" href="index.php?p=comments&id=<?= $post->id; ?>">Ajouter un commentaire</a></p>
 	</div>
 </div>

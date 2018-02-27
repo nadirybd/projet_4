@@ -132,7 +132,9 @@ header nav p a:hover
 
 .more_comments
 {
-	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .more_comments button a
@@ -141,22 +143,28 @@ header nav p a:hover
 	font-weight: bold;
 }
 
-.more_comments button
+.more_comments .button
 {
-	padding: 10px 15px;
+	text-align: center;
+	width: 200px;
+	display: block;
+	padding: 8px 18px;
 	border: 1px solid #007bff;
 	background-color: transparent;
 	border-radius: 5px;
+	color: #007bff;
+	cursor: pointer;
+	text-align: center;
 }
 
-.more_comments button:hover
+.more_comments .button:hover
 {
 	background-color: #007bff;
-}
-.more_comments button:hover > a
-{
 	color: white;
+	color: white;
+	text-decoration: none;
 }
+
 
 /* COMMENT PAGE */
 
@@ -189,6 +197,24 @@ header nav p a:hover
 {
 	background-color: #007bff;
 	color: white;
+}
+
+/* REPORT */
+
+.report input[type='submit']
+{
+	padding: 5px 15px;
+	background-color: transparent;
+	color: red;
+	border: 2px solid red;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.report input[type='submit']:hover
+{
+	background-color: red;
+	color: white;
+	border: 2px solid red;
 }
 
 /*******************************************

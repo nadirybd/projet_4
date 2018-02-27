@@ -9,11 +9,11 @@
 	<form id="login-form" method="post">
 		<p>
 			<label>Nom de l'administrateur :</label><br />
-			<input type="pseudo" name="user" />
+			<input type="pseudo" name="user" required/>
 		</p>
 		<p>
 			<label>Mot de passe :</label><br />
-			<input type="password" name="pass">
+			<input type="password" name="pass" required/>
 		</p>
 		<p><button type="submit">Se connecter</button></p>
 	</form>

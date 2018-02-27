@@ -12,7 +12,7 @@ class CommentsModel extends Model
 	*/
  	public function showbyLimit($id){
  		$comments = $this->MySql->query('
- 			SELECT comments.id, comments.pseudo, comments.comment, comments.post_id, DATE_FORMAT(comments.comment_date, "%d/%m/%Y à %Hh%imin%ss") as comment_dateFr, posts.id 
+ 			SELECT comments.id as comment_id, comments.pseudo, comments.comment, comments.report_id, comments.post_id, DATE_FORMAT(comments.comment_date, "%d/%m/%Y à %Hh%imin%ss") as comment_dateFr, posts.id 
  			FROM comments 
  			RIGHT JOIN posts 
  				ON comments.post_id = posts.id
@@ -26,7 +26,7 @@ class CommentsModel extends Model
 	*/
  	public function selectByPost($id){
  		$comments = $this->MySql->query('
- 			SELECT comments.id, comments.pseudo, comments.comment, comments.post_id, DATE_FORMAT(comments.comment_date, "%d/%m/%Y à %Hh%imin%ss") as comment_dateFr, posts.id 
+ 			SELECT comments.id as comment_id, comments.pseudo, comments.comment, comments.report_id, comments.post_id, DATE_FORMAT(comments.comment_date, "%d/%m/%Y à %Hh%imin%ss") as comment_dateFr, posts.id 
  			FROM comments 
  			RIGHT JOIN posts 
  				ON comments.post_id = posts.id
@@ -35,8 +35,7 @@ class CommentsModel extends Model
  	}
  	
  	/**
-	* @param $report_id int
-	* @return $comments Obj stdClass
+	* @return $comments_report Obj stdClass
 	*/
  	public function selectByReport(){
  		$comments_report = $this->MySql->query('
@@ -53,5 +52,14 @@ class CommentsModel extends Model
  	public function add($attributes){
  		$add = $this->MySql->prepare('INSERT INTO comments(pseudo, comment, comment_date, post_id) VALUES (:pseudo, :comment, NOW(), :post_id)', $attributes);
  		return $add;
+ 	}
+
+ 	/**
+ 	* @param $attributes array
+ 	* @return $report stdClass
+ 	*/
+ 	public function report($attributes){
+ 		$report = $this->MySql->prepare('UPDATE comments SET report_id =report_id + 1 WHERE id= ?', $attributes);
+ 		return $report;
  	}
 }
