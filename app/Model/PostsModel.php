@@ -54,7 +54,7 @@ class PostsModel extends Model
 	* @return $return Obj stdClass
 	*/
 	public function add($attributes){
-		$add = $this->MySql->prepare('INSERT INTO posts(title, content, creation_date) VALUES( title =:title, content=:content, creation_date=NOW() )', $attributes);
+		$add = $this->MySql->prepare('INSERT INTO posts(title, content, creation_date) VALUES(:title, :content, NOW())', $attributes);
 		return $add;
 	}
 }

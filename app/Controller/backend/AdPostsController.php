@@ -50,6 +50,20 @@ class AdPostsController extends Controller
 	/**
 	*
 	*/
+	public function addPost(){
+		if(isset($_POST['add'])){
+			$this->postsModel->add([
+				':title' => $_POST['addTitle'],
+				':content' => $_POST['addContent']
+			]);
+		header('location: index.php?p=admin.posts');
+		}
+		$this->renderBackend('admin-add-post');
+	}
+
+	/**
+	*
+	*/
 	public static function getInstance(){
 		if(self::$_instance === null){
 			return self::$_instance = new AdPostsController();

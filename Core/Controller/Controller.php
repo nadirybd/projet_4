@@ -40,9 +40,11 @@ class Controller
 	* @param $view str
 	* @param $array compact()
 	*/
-	protected function renderBackend($view, $array){
+	protected function renderBackend($view, $array = null){
 		ob_start();
-		extract($array);
+		if($array !== null){
+			extract($array);
+		}
 		require('View/backend/'. $view .'.php');
 		$content = ob_get_clean();
 		require('View/templates/default.php');
