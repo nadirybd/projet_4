@@ -8,7 +8,7 @@
 		<p>
 			<input type="hidden" name="id" value="<?= $post->id; ?>" />
 		</p>
-		<textarea id="mytextarea" cols="50" rows="30" name="content"><?= $post->content; ?></textarea>
+		<textarea id="mytinymce" cols="50" rows="30" name="content"><?= $post->content; ?></textarea>
 
 		<p><input type="submit" name="edit" /></p>
 	</form>

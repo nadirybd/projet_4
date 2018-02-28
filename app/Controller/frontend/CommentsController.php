@@ -17,10 +17,12 @@ class CommentsController extends Controller
 	public function comments(){
 		$max = $this->postsModel->max();
 
-		if(isset($_GET['id']) && intval($_GET['id']) && $_GET['id'] >= 1 && $_GET['id'] <= $max->maxId){
+		if(isset($_GET['id']) && intval($_GET['id']) && $_GET['id'] > 0 && $_GET['id'] <= $max->maxId){
 			$comments = $this->commentsModel->selectByPost($_GET['id']);
+			$post = $this->postsModel->select($_GET['id']);
 		} else {
 			$comments = $this->commentsModel->selectByPost($_GET['id'] = 1);
+			$post = $this->postsModel->select($_GET['id'] = 1);
 		}
 
 		if(isset($_POST['send_report'])){
@@ -38,7 +40,7 @@ class CommentsController extends Controller
 			}
 		}
 
-		$this->renderFrontend('comments', compact('comments'));
+		$this->renderFrontend('comments', compact('comments', 'post'));
 	}
 
 	/**

@@ -400,6 +400,28 @@ table thead
 	color: red;
 	border: 2px solid red;
 }
+
+/************************************************
+ CONFIRMATION ADD & CONFIRMATION EDIT ADMIN POST
+************************************************/
+/* Button */
+
+#edit-form input[type='submit'], #add-post-form input[type='submit']
+{
+	padding: 5px 15px;
+	background-color: transparent;
+	color: #007bff;
+	border: 2px solid #007bff;
+	border-radius: 5px;
+	cursor: pointer;
+}
+#edit-form input[type='submit']:hover, #add-post-form input[type='submit']:hover
+{
+	background-color: #007bff;
+	color: white;
+	border: 2px solid #007bff;
+}
+
 /*******************************************
 *               FOOTER
 *********************************************/

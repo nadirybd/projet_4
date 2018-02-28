@@ -48,8 +48,12 @@ elseif(strpos($page, 'admin') === 0){
 		}
 		elseif ($page === 'admin.add.post') {
 			AdPostsController::getInstance()->addPost();
+		} else {
+			// require('page404.php');
 		}
 	} else {
 		UserController::getInstance()->forbidden();
 	}
+} else {
+	// page 404
 }

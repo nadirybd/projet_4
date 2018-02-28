@@ -3,13 +3,18 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=8" />
 	<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
 	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	 <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
     <script>
   tinymce.init({
-    selector: '#mytextarea'
+    selector: '#mytextarea',
+  }); 
+  tinymce.init({
+    selector: '#mytinymce',
   });
+
   </script>
 	<link rel="stylesheet" type="text/css" href="public/css/style.css" />
 	<title>Ebook - Mon Nouveau livre</title>

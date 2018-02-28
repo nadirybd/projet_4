@@ -6,40 +6,25 @@
 	<p><em><?= $post->date_fr; ?></em></p>
 </div>
 
-<!-- Navigation entre les chapitres -->
-<div id="nav">
-	<?php if($_GET['id'] >= 1 && $_GET['id'] < $max->maxId ): ?>
-
-		<div class="next">
-			<a href="index.php?p=post&id=<?= $post->id + 1; ?>">Voir le chapitre suivant</a> 
-			<i class="far fa-arrow-alt-circle-right"></i>
-		</div>
-	
-	<?php endif; if($_GET['id'] > 1): ?>
-		<div class="prev">
-			<i class="far fa-arrow-alt-circle-left"></i> 
-			<a href="index.php?p=post&id=<?= $post->id - 1; ?>"> Voir le chapitre précédent</a>
-		</div>
-	<?php endif; ?>
-</div>
-
 <!-- Affichage des 3 derniers commentaires -->
 <div id="comments">
 	<?php foreach($comments as $comment): ?>
+			<?php if($comment->comment_id > 0): ?>
 		<div class="comment">
-			<p>
-				<?= htmlspecialchars($comment->pseudo); ?> à posté :
-			</p>
+				<p>
+					<?= htmlspecialchars($comment->pseudo); ?> à posté :
+				</p>
 
-			<div><?= htmlspecialchars($comment->comment); ?></div>
+				<div><?= htmlspecialchars($comment->comment); ?></div>
 
-			<p><em> <?= $comment->comment_dateFr; ?></em></p>
+				<p><em> <?= $comment->comment_dateFr; ?></em></p>
 
-			<form class="report" method="post">
-				<input type="hidden" name="report" value="<?= $comment->comment_id; ?>" />
-				<input type="submit" name="send_report" value="Signaler"/>
-			</form>
+				<form class="report" method="post">
+					<input type="hidden" name="report" value="<?= $comment->comment_id; ?>" />
+					<input type="submit" name="send_report" value="Signaler"/>
+				</form>
 		</div>
+			<?php endif; ?>
 	<?php endforeach; ?>
 
 	<div class="more_comments">

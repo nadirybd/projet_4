@@ -1,4 +1,12 @@
 <div id="all_comments">
+	<h1><a href="index.php?p=post&id=<?= $post->id; ?>"><?= $post->title; ?></a></h1>
+	<h2>Tous les commentaires :</h2>
+	<p>
+		<a href="index.php?p=post&id=<?= $post->id; ?>">
+			 <i class="fas fa-angle-left"></i> Retour 
+		</a>
+	</p>
+
 	<? foreach ($comments as $comment) : ?>
 		<div class="comment">
 			<p>
