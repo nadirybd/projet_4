@@ -1,4 +1,4 @@
-<?php
+<?php 
 require('app/App.php');
 App::load();
 
@@ -33,7 +33,6 @@ elseif ($page === 'login') {
 }
 elseif(strpos($page, 'admin') === 0){
 	if($user->logged()){
-
 		if($page === 'admin'){
 			AdCommentsController::getInstance()->admin();
 		}  
@@ -49,11 +48,11 @@ elseif(strpos($page, 'admin') === 0){
 		elseif ($page === 'admin.add.post') {
 			AdPostsController::getInstance()->addPost();
 		} else {
-			// require('page404.php');
+			UserController::getInstance()->notFound();
 		}
 	} else {
 		UserController::getInstance()->forbidden();
 	}
 } else {
-	// page 404
+	UserController::getInstance()->notFound();
 }
