@@ -20,6 +20,7 @@ class AdPostsController extends Controller
 		$posts = $this->postsModel->all();
 		if(isset($_POST['send_delete'])){
 			$this->postsModel->delete([':id' => $_POST['delete']]);
+			$this->commentsModel->deleteByPostId([':post_id' => $_POST['delete']]);
 			header('location: index.php?p=admin.posts');
 		}
 		$this->renderBackend('admin-posts', compact('posts'));

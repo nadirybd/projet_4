@@ -71,4 +71,14 @@ class CommentsModel extends Model
  		$delete = $this->MySql->prepare('DELETE FROM comments WHERE id= ?', $attributes);
  		return $delete;
  	}
+
+ 	/**
+	* @param $attributes array
+	* @return $return Obj stdClass
+	*/
+	public function deleteByPostId($attributes){
+		$delete = $this->MySql->prepare('DELETE FROM comments WHERE post_id=:post_id', $attributes);
+		return $delete;
+	}
+
 }
