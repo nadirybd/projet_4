@@ -36,7 +36,7 @@ class PostsModel extends Model
 	* @return $return Obj stdClass
 	*/
 	public function update($attributes){
-		$update = $this->MySql->prepare('UPDATE posts SET :title, :content WHERE :id', $attributes);
+		$update = $this->MySql->prepare('UPDATE posts SET title = :title, content= :content WHERE id=:id', $attributes);
 		return $update;
 	}
 }
