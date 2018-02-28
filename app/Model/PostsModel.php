@@ -30,4 +30,13 @@ class PostsModel extends Model
 		$max = $this->MySql->query('SELECT MAX(id) as maxId FROM posts', true);
 		return $max;
 	}
+
+	/**
+	* @param $attributes array
+	* @return $return Obj stdClass
+	*/
+	public function update($attributes){
+		$update = $this->MySql->prepare('UPDATE posts SET :title, :content WHERE :id', $attributes);
+		return $update;
+	}
 }

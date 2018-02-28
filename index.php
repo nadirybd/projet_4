@@ -43,7 +43,9 @@ elseif(strpos($page, 'admin') === 0){
 		elseif ($page === 'admin.posts') {
 			AdPostsController::getInstance()->adminPosts();
 		}
-
+		elseif ($page === 'admin.post.edit') {
+			AdPostsController::getInstance()->postEdit();
+		}
 	} else {
 		UserController::getInstance()->forbidden();
 	}

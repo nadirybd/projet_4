@@ -348,6 +348,58 @@ table thead
 	padding: 20px;
 }
 
+/****************
+   POSTS ADMIN
+*****************/
+#admin-post h1
+{
+	margin-bottom: 100px;
+	background-color: #e5e6e8;
+	padding: 30px;
+}
+
+/*EDIT BUTTON*/
+#admin-post .button
+{
+	text-align: center;
+	width: 100px;
+	display: block;
+	padding: 8px 18px;
+	border: 1px solid #007bff;
+	background-color: transparent;
+	border-radius: 5px;
+	color: #007bff;
+	cursor: pointer;
+	text-align: center;
+}
+
+#admin-post .button:hover
+{
+	background-color: #007bff;
+	color: white;
+	color: white;
+	text-decoration: none;
+}
+
+/*DELETE BUTTON*/
+.delete input[type='submit']
+{
+	width: 138px;
+	padding: 8px 18px;
+	background-color: red;
+	color: white;
+	border: 2px solid red;
+	border-radius: 5px;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.delete input[type='submit']:hover
+{
+	background-color: transparent;
+	color: red;
+	border: 2px solid red;
+}
 /*******************************************
 *               FOOTER
 *********************************************/

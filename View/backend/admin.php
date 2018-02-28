@@ -23,7 +23,7 @@
 					<td><?= $comment->pseudo; ?></td>
 					<td><?= $comment->comment; ?></td>
 					<td>
-						<form method="post">
+						<form class="delete" method="post">
 							<input type="hidden" name="delete" value="<?= $comment->id; ?>" />
 							<input type="submit" name="send_delete" value="Supprimer" />
 						</form>
