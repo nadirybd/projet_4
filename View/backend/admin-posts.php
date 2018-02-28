@@ -15,7 +15,7 @@
 				<tr>
 					<td><?= $post->title; ?></td>
 					<td>
-						<div><?= stripslashes(substr($post->content, 0, 400)); ?></div><span> ...</span></td>
+						<div><?= strip_tags(substr($post->content, 0, 400)); ?></div><span> ...</span></td>
 					<td>
 						<p>
 							<a class="button" href="index.php?p=admin.post.edit&id=<?= $post->id; ?>">Editer</a>

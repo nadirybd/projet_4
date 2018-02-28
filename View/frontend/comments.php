@@ -8,20 +8,22 @@
 	</p>
 
 	<? foreach ($comments as $comment) : ?>
-		<div class="comment">
-			<p>
-				<?= htmlspecialchars($comment->pseudo); ?> à posté :
-			</p>
+		<?php if($comment->comment_id > 0): ?>
+			<div class="comment">
+				<p>
+					<?= htmlspecialchars($comment->pseudo); ?> à posté :
+				</p>
 
-			<div><?= htmlspecialchars($comment->comment); ?></div>
+				<div><?= htmlspecialchars($comment->comment); ?></div>
 
-			<p><em> <?= $comment->comment_dateFr; ?></em></p>
+				<p><em> <?= $comment->comment_dateFr; ?></em></p>
 
-			<form class="report" method="post">
-				<input type="hidden" name="report" value="<?= $comment->comment_id; ?>" required/>
-				<input type="submit" name="send_report" value="Signaler"/>
-			</form>
-		</div>
+				<form class="report" method="post">
+					<input type="hidden" name="report" value="<?= $comment->comment_id; ?>" required/>
+					<input type="submit" name="send_report" value="Signaler"/>
+				</form>
+			</div>
+		<?php endif; ?>
 	<? endforeach; ?>
 </div>
 
