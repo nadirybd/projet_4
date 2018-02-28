@@ -2,7 +2,7 @@
 <section id="admin-page">
 	<aside>
 			<p><a href="index.php?p=admin.posts">Modifier les articles</a></p>
-			<p><a href="">Ajouter un article</a></p>
+			<p><a href="index.php?p=admin.add.post">Ajouter un article</a></p>
 			<p><a href="">Gérez votre compte</a></p>
 	</aside>
 

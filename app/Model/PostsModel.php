@@ -48,4 +48,13 @@ class PostsModel extends Model
 		$delete = $this->MySql->prepare('DELETE FROM posts WHERE id=:id', $attributes);
 		return $delete;
 	}
+
+	/**
+	* @param $attributes array
+	* @return $return Obj stdClass
+	*/
+	public function add($attributes){
+		$add = $this->MySql->prepare('INSERT INTO posts(title, content, creation_date) VALUES( title =:title, content=:content, creation_date=NOW() )', $attributes);
+		return $add;
+	}
 }
