@@ -9,7 +9,7 @@ class Auth extends Model
 	public function login($username, $password){
 		$user = $this->MySql->prepare('SELECT * FROM user WHERE name = ?', [$username], true);
 		if($user){
-			if($user->password === sha1($password)){
+			if(password_verify($password, $user->password)){
 				$_SESSION['auth'] = $user->name;
 				return true;
 			}
