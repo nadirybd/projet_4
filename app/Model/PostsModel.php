@@ -39,4 +39,13 @@ class PostsModel extends Model
 		$update = $this->MySql->prepare('UPDATE posts SET title = :title, content= :content WHERE id=:id', $attributes);
 		return $update;
 	}
+
+	/**
+	* @param $attributes array
+	* @return $return Obj stdClass
+	*/
+	public function delete($attributes){
+		$delete = $this->MySql->prepare('DELETE FROM posts WHERE id=:id', $attributes);
+		return $delete;
+	}
 }
