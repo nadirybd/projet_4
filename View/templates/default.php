@@ -43,6 +43,6 @@
 		<?= $content; ?>
 	</div>
 
-	<footer><p>Ebook Jean Rochefort ©<em>Copyright Tous droits réservés</em></p></footer>
+	<footer><p>Ebook Jean Forteroche ©<em>Copyright Tous droits réservés</em></p></footer>
 </body>
 </html>

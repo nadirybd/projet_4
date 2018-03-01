@@ -23,6 +23,10 @@
 					<td><?= $comment->pseudo; ?></td>
 					<td><?= $comment->comment; ?></td>
 					<td>
+						<form class="pull_report" method="post">
+							<input type="hidden" name="remove_report" value="<?= $comment->id; ?>" />
+							<input type="submit" name="pull_report" value="Accepter" />
+						</form>
 						<form class="delete" method="post">
 							<input type="hidden" name="delete" value="<?= $comment->id; ?>" />
 							<input type="submit" name="send_delete" value="Supprimer" />

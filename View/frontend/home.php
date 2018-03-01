@@ -1,5 +1,5 @@
 <div id="accueil">
-	<h1>Accueil - Liste des chapitres</h1>
+	<h1>Billet simple pour l'Alaska</h1>
 	<?php foreach ($posts as $post): ?>
 		<section>
 			<h2><a href="index.php?p=post&id=<?= $post->id; ?>"><?= $post->title; ?></a></h2>

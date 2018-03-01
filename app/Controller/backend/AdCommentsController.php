@@ -20,6 +20,10 @@ class AdCommentsController extends Controller
 			$this->commentsModel->delete([$_POST['delete']]);
 			header('location: index.php?p=admin');
 		}
+		if(isset($_POST['pull_report'])){
+			$this->commentsModel->pullReport([$_POST['remove_report']]);
+			header('location: index.php?p=admin');
+		}
 		$this->renderBackend('admin', compact('comments'));
 	}
 

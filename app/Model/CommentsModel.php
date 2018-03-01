@@ -65,6 +65,15 @@ class CommentsModel extends Model
 
  	/**
  	* @param $attributes array
+ 	* @return $report stdClass
+ 	*/
+ 	public function pullReport($attributes){
+ 		$pull_report = $this->MySql->prepare('UPDATE comments SET report_id = 0 WHERE id= ?', $attributes);
+ 		return $pull_report;
+ 	}
+
+ 	/**
+ 	* @param $attributes array
  	* @return $delete stdClass
  	*/
  	public function delete($attributes){
