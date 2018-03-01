@@ -4,6 +4,9 @@
 	<h1><?= $post->title; ?></h1>
 	<div><?= $post->content; ?></div>
 	<p><em><?= $post->date_fr; ?></em></p>
+	<?php if(isset($_SESSION['auth'])): ?>
+		<p><a href="index.php?p=admin.post.edit&id=<?= $post->id; ?>">Modifier l'article</a></p>
+	<?php endif; ?>
 </div>
 
 <!-- Affichage des 3 derniers commentaires -->
@@ -11,12 +14,8 @@
 	<?php foreach($comments as $comment): ?>
 			<?php if($comment->comment_id > 0): ?>
 		<div class="comment">
-				<p>
-					<?= htmlspecialchars($comment->pseudo); ?> à posté :
-				</p>
-
+				<p><?= htmlspecialchars($comment->pseudo); ?> à posté :</p>
 				<div><?= htmlspecialchars($comment->comment); ?></div>
-
 				<p><em> <?= $comment->comment_dateFr; ?></em></p>
 
 				<?php if(isset($_SESSION['auth'])): ?>
