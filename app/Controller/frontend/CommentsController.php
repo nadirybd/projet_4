@@ -40,6 +40,11 @@ class CommentsController extends Controller
 			}
 		}
 
+		if(isset($_POST['delete_comment'])){
+			$this->commentsModel->delete([$_POST['delete']]);
+			header('location: index.php?p=comments&id='. $_GET['id']);
+		}
+
 		$this->renderFrontend('comments', compact('comments', 'post'));
 	}
 

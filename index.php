@@ -23,7 +23,7 @@ if($page === 'home'){
 	PostsController::getInstance()->home();
 }
 elseif ($page === 'post') {
-	PostsController::getInstance()->post_comments();
+	PostsController::getInstance()->post();
 }
 elseif ($page === 'comments') {
 	CommentsController::getInstance()->comments();

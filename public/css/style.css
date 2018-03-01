@@ -159,6 +159,23 @@ header nav p a:hover
 	font-weight: bold;
 }
 
+#comments input[type="submit"], #all_comments input[type="submit"] 
+{
+	padding: 5px 8px;
+	background-color: transparent;
+	color: red;
+	border: 2px solid red;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+#comments input[type='submit']:hover, #all_comments input[type='submit']:hover
+{
+	background-color: red;
+	color: white;
+	border: 2px solid red;
+}
+
 .more_comments .button
 {
 	text-align: center;

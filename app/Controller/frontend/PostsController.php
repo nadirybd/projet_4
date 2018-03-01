@@ -20,7 +20,7 @@ class PostsController extends Controller
 	* Méthode post_comments qui affiche le post selectionné et les 
 	* commentaires par post
 	*/
-	public function post_comments(){
+	public function post(){
 		$max = $this->postsModel->max();
 
 		if(isset($_GET['id']) && intval($_GET['id']) && $_GET['id'] > 0 && $_GET['id'] <= $max->maxId){
@@ -30,8 +30,13 @@ class PostsController extends Controller
 			$post = $this->postsModel->select($_GET['id'] = 1);
 			$comments = $this->commentsModel->showByLimit($_GET['id'] = 1);
 		}
-		if($_POST){
+
+		if(isset($_POST['send_report'])){
 			$this->commentsModel->report([$_POST['report']]);
+		}
+		elseif(isset($_POST['delete_comment'])){
+			$this->commentsModel->delete([$_POST['delete']]);
+				header('location: index.php?p=post&id='. $_GET['id']);
 		}
 
 		$this->renderFrontend('post', compact('post', 'max', 'comments'));

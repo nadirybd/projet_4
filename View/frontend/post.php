@@ -19,10 +19,17 @@
 
 				<p><em> <?= $comment->comment_dateFr; ?></em></p>
 
+				<?php if(isset($_SESSION['auth'])): ?>
+				<form class="delete" method="post">
+					<input type="hidden" name="delete" value="<?= $comment->comment_id; ?>" />
+					<input type="submit" name="delete_comment" value="Supprimer" />
+				</form>
+				<?php elseif (!isset($_SESSION['auth'])): ?>
 				<form class="report" method="post">
 					<input type="hidden" name="report" value="<?= $comment->comment_id; ?>" />
 					<input type="submit" name="send_report" value="Signaler"/>
 				</form>
+				<?php endif; ?>
 		</div>
 			<?php endif; ?>
 	<?php endforeach; ?>
