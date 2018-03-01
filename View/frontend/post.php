@@ -1,7 +1,7 @@
+<p><a href="index.php"><i class="fas fa-home"></i> Retour à l'accueil</a></p>
 <!-- Affichage du post -->
 <div id="post">
 	<h1><?= $post->title; ?></h1>
-
 	<div><?= $post->content; ?></div>
 	<p><em><?= $post->date_fr; ?></em></p>
 </div>

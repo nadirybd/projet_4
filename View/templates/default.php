@@ -38,10 +38,7 @@
 			?>
 		</nav>
 	</header>
-	
-	<div id="slider">		
-	</div>
-	
+
 	<div id="content">
 		<?= $content; ?>
 	</div>

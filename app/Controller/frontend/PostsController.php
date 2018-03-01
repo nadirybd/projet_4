@@ -23,7 +23,7 @@ class PostsController extends Controller
 	public function post_comments(){
 		$max = $this->postsModel->max();
 
-		if(isset($_GET['id']) && intval($_GET['id']) && $_GET['id'] >= 1 && $_GET['id'] <= $max->maxId){
+		if(isset($_GET['id']) && intval($_GET['id']) && $_GET['id'] > 0 && $_GET['id'] <= $max->maxId){
 			$post = $this->postsModel->select($_GET['id']);
 			$comments = $this->commentsModel->showByLimit($_GET['id']);
 		} else {

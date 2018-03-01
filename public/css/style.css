@@ -68,6 +68,7 @@ header nav p a:hover
 	padding: 50px;
 	margin: 50px auto;
 	background-color: white;
+	box-shadow: 0 0 10px black;
 }
 
 #content h1
@@ -78,12 +79,26 @@ header nav p a:hover
 /**************
 	ACCUEIL
 ***************/
+#accueil
+{
+	display: flex;
+	flex-direction: column;
+}
 
 #accueil h1
 {
 	margin-bottom: 100px;
-	background-color: #e5e6e8;
+	background-color: #343a40;
+	color: white;
 	padding: 30px;
+}
+
+#accueil section
+{
+	background-color: #e8e8e8;
+	padding: 20px;
+	margin-bottom: 20px;
+	border-radius: 5px;
 }
 
 /**************
@@ -92,8 +107,9 @@ header nav p a:hover
 
 #post h1
 {
-	margin-bottom: 100px;
-	background-color: #e5e6e8;
+	margin-bottom: 80px;
+	color: white;
+	background-color: #343a40;
 	padding: 30px;
 }
 
@@ -119,7 +135,7 @@ header nav p a:hover
 .comment
 {
 	padding: 20px;
-	background-color: #e5e6e8;
+	background-color: #e8e8e8;
 	margin-bottom: 10px;
 	border-radius: 5px;
 }
@@ -168,6 +184,26 @@ header nav p a:hover
 
 /* COMMENT PAGE */
 
+#all_comments h1
+{
+	margin-bottom: 50px;
+	color: white;
+	background-color: #343a40;
+	padding: 30px;
+}
+
+#all_comments
+{
+	display: flex;
+	flex-direction: column;
+}
+
+#all_comments h2
+{
+	align-self: center;
+	margin-bottom: 80px;
+}
+
 #form-comment
 {
 	text-align: center;
@@ -191,6 +227,7 @@ header nav p a:hover
 	background-color: transparent;
 	border-radius: 5px;
 	color: #007bff;
+	cursor: pointer;
 }
 
 #form-comment button:hover
