@@ -342,6 +342,13 @@ header nav p a:hover
 /*************
    admin home
 **************/
+#admin-interface h1
+{
+	margin-bottom: 20px;
+	background-color: #343a40;
+	color: white;
+	padding: 30px;
+}
 
 #admin-page
 {
@@ -381,6 +388,10 @@ header nav p a:hover
 	color: white;
 	text-decoration: none;
 }
+#admin-page h3
+{
+	text-align: center;
+}
 
 table
 {
@@ -408,7 +419,8 @@ table thead
 #admin-post h1
 {
 	margin-bottom: 100px;
-	background-color: #e5e6e8;
+	background-color: #343a40;
+	color: white;
 	padding: 30px;
 }
 
@@ -476,6 +488,32 @@ table thead
 	border: 2px solid #007bff;
 }
 
+
+/*******************************
+    ADD & EDIT ADMIN POST
+*******************************/
+
+#edit-selected h1, #add-post h1, #account h1
+{
+	margin-bottom: 100px;
+	background-color: #343a40;
+	color: white;
+	padding: 30px;
+}
+
+#edit-form, #add-post-form
+{
+	text-align: center;
+}
+
+#edit-form input[type="text"], #add-post-form input[type="text"]
+{
+	border-radius: 5px;
+	width: 90%;
+	padding: 8px;
+	border: 2px solid black;
+}
+
 /************************************************
  CONFIRMATION ADD & CONFIRMATION EDIT ADMIN POST
 ************************************************/
@@ -491,6 +529,47 @@ table thead
 	cursor: pointer;
 }
 #edit-form input[type='submit']:hover, #add-post-form input[type='submit']:hover
+{
+	background-color: #007bff;
+	color: white;
+	border: 2px solid #007bff;
+}
+
+/****************
+	ACCOUNT
+*****************/
+
+#account form 
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	background-color: #343a40;
+	color: white;
+	border-radius: 5px;
+	padding: 50px;
+}
+
+#account form input
+{
+	margin-top: 10px;
+	padding: 5px;
+	border-radius: 5px;
+	border: 2px solid black;
+}
+
+#account input[type="submit"]
+{
+	padding: 5px 15px;
+	background-color: transparent;
+	color: white;
+	border: 2px solid white;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+#account input[type="submit"]:hover
 {
 	background-color: #007bff;
 	color: white;

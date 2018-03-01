@@ -1,5 +1,5 @@
 <div id="admin-post">
-	<h1>Tous vos articles :</h1>
+	<h1>Gestionnaires des articles</h1>
 	
 	<table>
 		<thead>
