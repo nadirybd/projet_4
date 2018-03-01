@@ -47,6 +47,9 @@ elseif(strpos($page, 'admin') === 0){
 		}
 		elseif ($page === 'admin.add.post') {
 			AdPostsController::getInstance()->addPost();
+		}
+		elseif ($page === 'admin.account') {
+			UserController::getInstance()->account();
 		} else {
 			UserController::getInstance()->notFound();
 		}

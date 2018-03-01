@@ -2,7 +2,7 @@
 	<h1>Connexion à l'administration</h1>
 	<?php if($error === true): ?>
 
-	<p><strong>Identifiant incorrect</strong></p>
+	<p><span class="error">Identifiant incorrect</span></p>
 
 	<?php endif; ?>
 

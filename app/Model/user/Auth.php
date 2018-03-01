@@ -23,4 +23,14 @@ class Auth extends Model
 		}
 		return false;
 	}
+
+	public function account($attributes){
+		$account = $this->MySql->prepare('UPDATE user SET name = :name, password = :password', $attributes);
+		return $account;
+	}
+
+	public function verify($name){
+		$pass = $this->MySql->query('SELECT name, password FROM user WHERE name="'. $name.'"', true);
+		return $pass;
+	}
 }
