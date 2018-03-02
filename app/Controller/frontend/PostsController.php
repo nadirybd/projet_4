@@ -7,18 +7,38 @@ use Core\Controller\Controller;
 class PostsController extends Controller
 {
 	/**
-	* $_instance variable qui stocke une instance 
+	* $_instance variable qui stocke une instance
+	* $viewPath stockera un nom de dossier 
 	*/
 	private static $_instance;
+	protected $viewPath = 'frontend';
 
+	/**
+	* Méthode home qui affiche tous les posts dans une pagination et effectue la logique entre les models et la vue
+	*/
 	public function home(){
-		$posts = $this->postsModel->all();
-		$this->renderFrontend('home', compact('posts'));
+		$posts_per_page = 5;
+		$posts_selected = $this->postsModel->all();
+		$number_of_posts = count($posts_selected);
+		$number_of_pages = ceil($number_of_posts / $posts_per_page);
+		
+		if(intval($_GET['page']) && isset($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] <= $number_of_pages){
+			$from = $posts_per_page * ($_GET['page'] - 1);
+			$posts = $this->postsModel->postsLimit($from, $posts_per_page);
+		} else {
+			$_GET['page'] = 1;
+			$from = $posts_per_page * ($_GET['page'] - 1);
+			$posts = $this->postsModel->postsLimit($from, $posts_per_page);
+		}
+
+		$current_page = $_GET['page'];
+
+		$this->render('home', compact('posts', 'posts_per_page', 'number_of_posts', 'number_of_pages', 'current_page'));
 	}
 
 	/**
 	* Méthode post_comments qui affiche le post selectionné et les 
-	* commentaires par post
+	 commentaires par post et effectue la logique entre les models et la vue
 	*/
 	public function post(){
 		$max = $this->postsModel->max();
@@ -45,7 +65,7 @@ class PostsController extends Controller
 				header('location: index.php?p=post&id='. $_GET['id']);
 		}
 
-		$this->renderFrontend('post', compact('post', 'max', 'comments'));
+		$this->render('post', compact('post', 'max', 'comments'));
 	}
 
 	/**

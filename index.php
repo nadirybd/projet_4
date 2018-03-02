@@ -20,6 +20,9 @@ if(!empty($_GET['p']) && isset($_GET['p'])){
 }
 
 if($page === 'home'){
+	if(!isset($_GET['page'])){
+		$_GET['page'] = 1;
+	}
 	PostsController::getInstance()->home();
 }
 elseif ($page === 'post') {

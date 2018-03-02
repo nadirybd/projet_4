@@ -9,8 +9,10 @@ class UserController extends Controller
 {
 	/**
 	* Variable $_instance qui stocke sa propre instance 
+	* $viewPath stockera un nom de dossier 
 	*/
 	private static $_instance;
+	protected $viewPath = 'user';
 
 	/**
 	* Méthode qui fera la transmission entre le model et la vue login 
@@ -24,7 +26,7 @@ class UserController extends Controller
 				$error = true;
 			}
 		}
-		$this->renderUser('login', compact('error'));
+		$this->render('login', compact('error'));
 	}
 
 	/**
@@ -45,14 +47,14 @@ class UserController extends Controller
 				$error = true;
 			}
 		}
-		$this->renderUser('account', compact('error', 'pass'));
+		$this->render('account', compact('error', 'pass'));
 	}
 
 	/**
 	* Méthode qui fera la transmission entre le model et la vue forbidden
 	*/
 	public function forbidden(){
-		$this->renderUser('forbidden');
+		$this->render('forbidden');
 	}
 
 	/**
@@ -61,7 +63,7 @@ class UserController extends Controller
 	public function disconnect(){
 		unset($_SESSION['auth']);
 		header('location: index.php');
-		$this->renderUser('disconnect');
+		$this->render('disconnect');
 	}
 
 	/**

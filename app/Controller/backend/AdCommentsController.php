@@ -7,9 +7,11 @@ use Core\Controller\Controller;
 class AdCommentsController extends Controller
 {	
 	/**
-	* variable static $_instance qui stocke une instance
+	* $_instance variable qui stocke une instance
+	* $viewPath stockera un nom de dossier 
 	*/
 	private static $_instance;
+	protected $viewPath = 'backend';
 
 	/**
 	* 
@@ -24,7 +26,7 @@ class AdCommentsController extends Controller
 			$this->commentsModel->pullReport([$_POST['remove_report']]);
 			header('location: index.php?p=admin');
 		}
-		$this->renderBackend('admin', compact('comments'));
+		$this->render('admin', compact('comments'));
 	}
 
 	/**

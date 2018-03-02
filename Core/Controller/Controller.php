@@ -9,10 +9,13 @@ class Controller
 	* $postsModel stockera une instance de la classe PostsModel
 	* $commentsModel stockera une instance de la classe CommentsModel
 	* $auth stockera une instance de la classe Auth
+	* $viewPath stockera un nom de dossier 
 	*/
 	protected $postsModel;
 	protected $commentsModel;
 	protected $auth;
+	
+	protected $viewPath;
 
 	/**
 	* __construct créera des instances de :
@@ -35,40 +38,14 @@ class Controller
 
 	/**
 	* @param $view str
-	* @param $array compact()
-	*/
-	protected function renderFrontend($view, $array){
-		ob_start();
-		extract($array);
-		require('View/frontend/'. $view .'.php');
-		$content = ob_get_clean();
-		require('View/templates/default.php');
-	}
-
-	/**
-	* @param $view str
 	* @param [$array compact()] 
 	*/
-	protected function renderBackend($view, $array = null){
+	protected function render($view, $array = null){
 		ob_start();
 		if($array !== null){
 			extract($array);
 		}
-		require('View/backend/'. $view .'.php');
-		$content = ob_get_clean();
-		require('View/templates/default.php');
-	}
-
-	/**
-	* @param $view str
-	* @param [$array compact()]
-	*/
-	protected function renderUser($view, $array = null){
-		ob_start();
-		if($array !== null){
-			extract($array);
-		}
-		require('View/user/'. $view .'.php');
+		require('View/'. $this->viewPath .'/'. $view .'.php');
 		$content = ob_get_clean();
 		require('View/templates/default.php');
 	}

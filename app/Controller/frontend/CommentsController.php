@@ -7,12 +7,14 @@ use Core\Controller\Controller;
 class CommentsController extends Controller
 {
 	/**
-	* $_instance variable qui stocke une instance 
+	* $_instance variable qui stocke une instance
+	* $viewPath stockera un nom de dossier 
 	*/
 	private static $_instance;
+	protected $viewPath = 'frontend';
 
 	/**
-	* Méthode comments qui affiche les commentaires par post
+	* Méthode comments qui affiche les commentaires par post et effectue la logiqe entre les models et la vue
 	*/
 	public function comments(){
 		$max = $this->postsModel->max();
@@ -33,7 +35,7 @@ class CommentsController extends Controller
 
 		if(isset($_POST['send_report'])){
 			$this->commentsModel->report([$_POST['report']]);
-		}
+		} 
 		elseif(isset($_POST['send_comment'])){
 			if(!empty($_POST['pseudo']) && !empty($_POST['text']) && strlen($_POST['pseudo']) <= 25) {
 				$this->commentsModel->add([
@@ -45,13 +47,13 @@ class CommentsController extends Controller
 			} else {
 			 	$error = true;
 			}
-		}	
+		} 
 		elseif(isset($_POST['delete_comment'])){
 			$this->commentsModel->delete([$_POST['delete']]);
 			header('location: index.php?p=comments&id='. $_GET['id']);
 		}
 
-		$this->renderFrontend('comments', compact('comments', 'post', 'error'));
+		$this->render('comments', compact('comments', 'post', 'error'));
 	}
 
 	/**

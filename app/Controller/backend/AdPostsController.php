@@ -9,10 +9,11 @@ use Core\Controller\Controller;
 class AdPostsController extends Controller
 {
 	/**
-	*
+	* $_instance variable qui stocke une instance
+	* $viewPath stockera un nom de dossier 
 	*/
 	private static $_instance;
-
+	protected $viewPath = 'backend';
 	/**
 	*
 	*/
@@ -23,7 +24,7 @@ class AdPostsController extends Controller
 			$this->commentsModel->deleteByPostId([':post_id' => $_POST['delete']]);
 			header('location: index.php?p=admin.posts');
 		}
-		$this->renderBackend('admin-posts', compact('posts'));
+		$this->render('admin-posts', compact('posts'));
 	}
 
 	/**
@@ -45,7 +46,7 @@ class AdPostsController extends Controller
 			header('location: index.php?p=admin.posts');
 		}
 
-		$this->renderBackend('admin-post-edit', compact('post'));
+		$this->render('admin-post-edit', compact('post'));
 	}
 
 	/**
@@ -59,7 +60,7 @@ class AdPostsController extends Controller
 			]);
 		header('location: index.php?p=admin.posts');
 		}
-		$this->renderBackend('admin-add-post');
+		$this->render('admin-add-post');
 	}
 
 	/**

@@ -24,6 +24,16 @@ class PostsModel extends Model
 	}
 
 	/**
+	* @param $from int
+	* @param $to int
+	* @return $postLimit Obj stdClass
+	*/
+	public function postsLimit($from, $to){
+		$postLimit = $this->MySql->query('SELECT id, title, content, DATE_FORMAT(creation_date, "%d/%m/%Y") as date_fr FROM posts ORDER BY id ASC LIMIT '. $from . ',' . $to);
+		return $postLimit;
+	}
+
+	/**
 	* @return $max Obj stdClass
 	*/
 	public function max(){
