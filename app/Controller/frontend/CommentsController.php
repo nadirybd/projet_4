@@ -16,15 +16,19 @@ class CommentsController extends Controller
 	*/
 	public function comments(){
 		$max = $this->postsModel->max();
+		$min = $this->postsModel->min();
 		$error = false;
 		if(isset($_GET['id']) && intval($_GET['id']) && $_GET['id'] > 0 && $_GET['id'] <= $max->maxId){
 			$comments = $this->commentsModel->selectByPost($_GET['id']);
+			$post = $this->postsModel->select([$_GET['id']]);
 			if(!is_object($post)){
-				$post = $this->postsModel->select([$_GET['id'] = 1]);
+				$_GET['id'] = $min->minId;
+				$post = $this->postsModel->select([$_GET['id']]);
 			}
 		} else {
-			$comments = $this->commentsModel->selectByPost($_GET['id'] = 1);
-			$post = $this->postsModel->select($_GET['id'] = 1);
+			$_GET['id'] = $min->minId;
+			$comments = $this->commentsModel->selectByPost($_GET['id']);
+			$post = $this->postsModel->select($_GET['id']);
 		}
 
 		if(isset($_POST['send_report'])){
@@ -41,7 +45,7 @@ class CommentsController extends Controller
 			} else {
 			 	$error = true;
 			}
-		}
+		}	
 		elseif(isset($_POST['delete_comment'])){
 			$this->commentsModel->delete([$_POST['delete']]);
 			header('location: index.php?p=comments&id='. $_GET['id']);

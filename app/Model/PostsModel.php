@@ -32,6 +32,14 @@ class PostsModel extends Model
 	}
 
 	/**
+ 	* @return $min
+ 	*/
+	public function min(){
+		$min = $this->MySql->query('SELECT MIN(id) as minId FROM posts', true);
+		return $min;
+	} 
+
+	/**
 	* @param $attributes array
 	* @return $return Obj stdClass
 	*/

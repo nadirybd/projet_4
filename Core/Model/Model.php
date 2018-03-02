@@ -2,14 +2,15 @@
 namespace Core\Model;
 use Core\Database\MysqlDatabase;
 /**
-* Class Model
+* Class Model 
 */
 class Model
 {
 	protected $MySql;
 
 	/**
-	* __construct crée une instance de Mysqldatabase en la stocke dans la * variable a$MySql;
+	* __construct crée une instance de Mysqldatabase en la stockant dans 
+	* la variable $this->MyzSql;
 	*/
 	public function __construct(){
 		if($this->MySql === null){

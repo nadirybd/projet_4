@@ -6,7 +6,8 @@ namespace Core;
 class Autoloader
 {
 	/**
-	* @param $class prend en paramètre la class
+	* @param $class prend en paramètre la classe
+	* méthode qui fait un require des classes dynamiquement 
 	*/
 	private static function autoload($class){
 		if(strpos($class, __NAMESPACE__ . '\\') === 0){
@@ -15,6 +16,10 @@ class Autoloader
 		}
 	}
 
+	/**
+	* Méthode qui utilise la fonction spl_autoload_register
+	* Permet d'utiliser plusieurs fois la méthode autoload
+	*/
 	public static function register(){
 		spl_autoload_register(array (__CLASS__, 'autoload'));
 	} 

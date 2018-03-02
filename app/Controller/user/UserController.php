@@ -8,12 +8,12 @@ use Core\Controller\Controller;
 class UserController extends Controller
 {
 	/**
-	* $_instance variable qui stocke une instance 
+	* Variable $_instance qui stocke sa propre instance 
 	*/
 	private static $_instance;
 
 	/**
-	*
+	* Méthode qui fera la transmission entre le model et la vue login 
 	*/
 	public function login(){
 		$error = false;
@@ -28,7 +28,7 @@ class UserController extends Controller
 	}
 
 	/**
-	*
+	* Méthode qui fera la transmission entre le model et la vue account
 	*/
 	public function account(){
 		$error = false;
@@ -49,14 +49,14 @@ class UserController extends Controller
 	}
 
 	/**
-	*
+	* Méthode qui fera la transmission entre le model et la vue forbidden
 	*/
 	public function forbidden(){
 		$this->renderUser('forbidden');
 	}
 
 	/**
-	*
+	* Méthode qui fera la transmission entre le model et la vue disconnect
 	*/
 	public function disconnect(){
 		unset($_SESSION['auth']);
@@ -65,7 +65,7 @@ class UserController extends Controller
 	}
 
 	/**
-	*
+	* Méthode qui fera la transmission entre le model et la vue 404
 	*/
 	public function notFound(){
 		header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found");

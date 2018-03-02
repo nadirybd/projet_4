@@ -4,13 +4,22 @@ namespace Core\Controller;
 * Class Controller
 */
 class Controller
-{
+{	
+	/**
+	* $postsModel stockera une instance de la classe PostsModel
+	* $commentsModel stockera une instance de la classe CommentsModel
+	* $auth stockera une instance de la classe Auth
+	*/
 	protected $postsModel;
 	protected $commentsModel;
 	protected $auth;
 
 	/**
-	* __construct crée une instance de Posts en la stocke dans la * variable a$MySql;
+	* __construct créera des instances de :
+	* la classe PostsModel est sera stocké dans la variable $postsModel
+	* la classe CommentsModel est sera stocké dans la variable 
+	* $commentsModel
+	* la classe Auth est sera stocké dans la variable $auth
 	*/
 	public function __construct(){
 		if($this->postsModel === null){
@@ -38,7 +47,7 @@ class Controller
 
 	/**
 	* @param $view str
-	* @param $array compact()
+	* @param [$array compact()] 
 	*/
 	protected function renderBackend($view, $array = null){
 		ob_start();
@@ -52,7 +61,7 @@ class Controller
 
 	/**
 	* @param $view str
-	* @param $array compact()
+	* @param [$array compact()]
 	*/
 	protected function renderUser($view, $array = null){
 		ob_start();

@@ -7,7 +7,7 @@ class App
 {
 	/**
 	* Méthode load qui chargera les autoloaders présents dans les 
-	* différents dossiers et crée une session 
+	* différents dossiers et créera une session 
 	*/
 	public static function load(){
 		session_start();

@@ -22,17 +22,19 @@ class PostsController extends Controller
 	*/
 	public function post(){
 		$max = $this->postsModel->max();
+		$min = $this->postsModel->min();
 
 		if(isset($_GET['id']) && intval($_GET['id']) && $_GET['id'] > 0 && $_GET['id'] <= $max->maxId){
 			$post = $this->postsModel->select([$_GET['id']]);
 			if(!is_object($post)){
-				$_GET['id'] = 1;
+				$_GET['id'] = $min->minId;
 				$post = $this->postsModel->select([$_GET['id']]);
 			}
 			$comments = $this->commentsModel->showByLimit($_GET['id']);
 		} else {
-			$post = $this->postsModel->select([$_GET['id'] = 1]);
-			$comments = $this->commentsModel->showByLimit($_GET['id'] = 1);
+			$_GET['id'] = $min->minId;
+			$post = $this->postsModel->select([$_GET['id']]);
+			$comments = $this->commentsModel->showByLimit($_GET['id']);
 		}
 
 		if(isset($_POST['send_report'])){
