@@ -36,7 +36,7 @@ header
 header h1 a
 {
 	color: white;
-	text-decoration: none;
+	text-decoration: none!important;
 }
 
 header nav
@@ -74,6 +74,16 @@ header nav p a:hover
 #content h1
 {
 	text-align: center;
+}
+
+/*Erreurs*/
+.error
+{
+	color: red;
+	text-align: center;
+	margin-bottom: 20px;
+	font-weight: bold;
+	font-size: 1.2em;
 }
 
 /**************

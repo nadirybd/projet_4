@@ -33,7 +33,11 @@
 			</div>
 		<?php endif; ?>
 	<? endforeach; ?>
-			</div>
+</div>
+
+<?php if($error): ?>
+<div class="error">Veuillez ne pas dépasser la limite de 25 caractères pour le pseudo</div>
+<?php endif; ?>
 
 <form id="form-comment" method="post">
 	<p>

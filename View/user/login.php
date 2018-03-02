@@ -1,9 +1,8 @@
 <div id="login">
 	<h1>Connexion à l'administration</h1>
+	
 	<?php if($error === true): ?>
-
-	<p><span class="error">Identifiant incorrect</span></p>
-
+		<div class="error">Identifiant incorrect</div>	
 	<?php endif; ?>
 
 	<form id="login-form" method="post">

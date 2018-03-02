@@ -22,8 +22,8 @@
 				<?php foreach ($comments as $comment): ?>
 					<tr>
 						<td><?= $comment->report_id; ?></td>
-						<td><?= $comment->pseudo; ?></td>
-						<td><?= $comment->comment; ?></td>
+						<td><?= htmlspecialchars($comment->pseudo); ?></td>
+						<td><?= htmlspecialchars($comment->comment); ?></td>
 						<td>
 							<form class="pull_report" method="post">
 								<input type="hidden" name="remove_report" value="<?= $comment->id; ?>" />

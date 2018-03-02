@@ -2,7 +2,7 @@
 	<h1>Gérer votre compte</h1>
 
 	<?php if($error): ?>
-	<p><span class="error">Identifiant incorrect</span></p>	
+		<div class="error">Identifiant incorrect</div>	
 	<?php endif; ?>
 
 	<form method="post">

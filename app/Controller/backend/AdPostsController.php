@@ -31,7 +31,7 @@ class AdPostsController extends Controller
 	*/
 	public function postEdit(){
 		if(isset($_GET['id']) && !empty($_GET['id']) && intval($_GET['id'])){
-			$post = $this->postsModel->select($_GET['id']);
+			$post = $this->postsModel->select([$_GET['id']]);
 		} else {
 			header('location: index.php?p=admin');
 		}

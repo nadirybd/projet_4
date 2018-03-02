@@ -16,7 +16,7 @@ class CommentsModel extends Model
  			FROM comments 
  			RIGHT JOIN posts 
  				ON comments.post_id = posts.id
- 			WHERE posts.id = '. $id .' ORDER BY comment_dateFr DESC LIMIT 0, 3');
+ 			WHERE posts.id = '. $id .' ORDER BY comments.comment_date DESC LIMIT 0, 3');
  		return $comments;
  	}
 
@@ -30,7 +30,7 @@ class CommentsModel extends Model
  			FROM comments 
  			RIGHT JOIN posts 
  				ON comments.post_id = posts.id
- 			WHERE posts.id = '. $id .' ORDER BY comment_dateFr DESC');
+ 			WHERE posts.id = '. $id .' ORDER BY comments.comment_date DESC');
  		return $comments;
  	}
  	

@@ -16,10 +16,12 @@ class CommentsController extends Controller
 	*/
 	public function comments(){
 		$max = $this->postsModel->max();
-
+		$error = false;
 		if(isset($_GET['id']) && intval($_GET['id']) && $_GET['id'] > 0 && $_GET['id'] <= $max->maxId){
 			$comments = $this->commentsModel->selectByPost($_GET['id']);
-			$post = $this->postsModel->select($_GET['id']);
+			if(!is_object($post)){
+				$post = $this->postsModel->select([$_GET['id'] = 1]);
+			}
 		} else {
 			$comments = $this->commentsModel->selectByPost($_GET['id'] = 1);
 			$post = $this->postsModel->select($_GET['id'] = 1);
@@ -28,24 +30,24 @@ class CommentsController extends Controller
 		if(isset($_POST['send_report'])){
 			$this->commentsModel->report([$_POST['report']]);
 		}
-
-		if(isset($_POST['send_comment'])){
-			if(!empty($_POST['pseudo']) && !empty($_POST['text'])) {
+		elseif(isset($_POST['send_comment'])){
+			if(!empty($_POST['pseudo']) && !empty($_POST['text']) && strlen($_POST['pseudo']) <= 25) {
 				$this->commentsModel->add([
 					':post_id' => $_GET['id'],
 					':pseudo' => $_POST['pseudo'],
 					':comment' => $_POST['text']
 				]);
 				header('location: index.php?p=comments&id='. $_GET['id']);
+			} else {
+			 	$error = true;
 			}
 		}
-
-		if(isset($_POST['delete_comment'])){
+		elseif(isset($_POST['delete_comment'])){
 			$this->commentsModel->delete([$_POST['delete']]);
 			header('location: index.php?p=comments&id='. $_GET['id']);
 		}
 
-		$this->renderFrontend('comments', compact('comments', 'post'));
+		$this->renderFrontend('comments', compact('comments', 'post', 'error'));
 	}
 
 	/**

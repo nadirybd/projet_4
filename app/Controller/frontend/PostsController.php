@@ -24,10 +24,14 @@ class PostsController extends Controller
 		$max = $this->postsModel->max();
 
 		if(isset($_GET['id']) && intval($_GET['id']) && $_GET['id'] > 0 && $_GET['id'] <= $max->maxId){
-			$post = $this->postsModel->select($_GET['id']);
+			$post = $this->postsModel->select([$_GET['id']]);
+			if(!is_object($post)){
+				$_GET['id'] = 1;
+				$post = $this->postsModel->select([$_GET['id']]);
+			}
 			$comments = $this->commentsModel->showByLimit($_GET['id']);
 		} else {
-			$post = $this->postsModel->select($_GET['id'] = 1);
+			$post = $this->postsModel->select([$_GET['id'] = 1]);
 			$comments = $this->commentsModel->showByLimit($_GET['id'] = 1);
 		}
 
