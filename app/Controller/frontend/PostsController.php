@@ -17,6 +17,7 @@ class PostsController extends Controller
 	* Méthode home qui affiche tous les posts dans une pagination et effectue la logique entre les models et la vue
 	*/
 	public function home(){
+
 		$posts_per_page = 5;
 		$posts_selected = $this->postsModel->all();
 		$number_of_posts = count($posts_selected);
@@ -64,7 +65,7 @@ class PostsController extends Controller
 			$this->commentsModel->delete([$_POST['delete']]);
 				header('location: index.php?p=post&id='. $_GET['id']);
 		}
-
+		
 		$this->render('post', compact('post', 'max', 'comments'));
 	}
 

@@ -35,9 +35,7 @@
 	<? endforeach; ?>
 </div>
 
-<?php if($error): ?>
-<div class="error">Veuillez ne pas dépasser la limite de 25 caractères pour le pseudo</div>
-<?php endif; ?>
+
 
 <form id="form-comment" method="post">
 	<p>
@@ -48,5 +46,11 @@
 		Votre commentaire : <br />
 		<textarea name="text" cols="60" rows="15" required></textarea>
 	</p>
+	
+	<?php if($error): ?>
+		<div class="error">Veuillez ne pas dépasser la limite de 25 caractères pour le pseudo</div>
+	<?php endif; ?>
+	
 	<button type="submit" name="send_comment">Envoyer votre commentaire</button>
 </form>
+	

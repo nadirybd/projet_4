@@ -14,8 +14,9 @@ class AdPostsController extends Controller
 	*/
 	private static $_instance;
 	protected $viewPath = 'backend';
+
 	/**
-	*
+	* Méthode adminPosts affiche les posts et gère la logique entre les models et la vue
 	*/
 	public function adminPosts(){
 		$posts_per_page = 6;
@@ -42,7 +43,7 @@ class AdPostsController extends Controller
 	}
 
 	/**
-	*
+	* Méthode postEdit affiche le post, donne la possibilité à éditer un post et gère la logique entre les models et la vue
 	*/
 	public function postEdit(){
 		if(isset($_GET['id']) && !empty($_GET['id']) && intval($_GET['id'])){
@@ -64,7 +65,7 @@ class AdPostsController extends Controller
 	}
 
 	/**
-	*
+	* Méthode addPost ajoute la possibilité d'ajouter un post et gère la logique entre les models et la vue 
 	*/
 	public function addPost(){
 		if(isset($_POST['add'])){
@@ -78,7 +79,7 @@ class AdPostsController extends Controller
 	}
 
 	/**
-	*
+	* @return la variable $_instance qui stocke une instanciation de la classe
 	*/
 	public static function getInstance(){
 		if(self::$_instance === null){

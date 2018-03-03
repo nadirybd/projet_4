@@ -20,6 +20,7 @@ class CommentsController extends Controller
 		$max = $this->postsModel->max();
 		$min = $this->postsModel->min();
 		$error = false;
+		
 		if(isset($_GET['id']) && intval($_GET['id']) && $_GET['id'] > 0 && $_GET['id'] <= $max->maxId){
 			$comments = $this->commentsModel->selectByPost($_GET['id']);
 			$post = $this->postsModel->select([$_GET['id']]);

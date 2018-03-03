@@ -12,7 +12,7 @@
 		<p>Contenu de l'article :</p>
 		<textarea id="mytinymce" cols="50" rows="30" name="content"><?= $post->content; ?></textarea>
 
-		<p><input type="submit" name="edit" /></p>
+		<p><input type="submit" name="edit" value="Mettre à jour"/></p>
 	</form>
 
 	<p>

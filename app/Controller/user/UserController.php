@@ -33,6 +33,7 @@ class UserController extends Controller
 	* Méthode qui fera la transmission entre le model et la vue account
 	*/
 	public function account(){
+
 		$error = false;
 		$pass = $this->auth->verify($_SESSION['auth']);
 		if(!empty($_POST) && isset($_POST['user-info'])){
@@ -54,6 +55,7 @@ class UserController extends Controller
 	* Méthode qui fera la transmission entre le model et la vue forbidden
 	*/
 	public function forbidden(){
+
 		$this->render('forbidden');
 	}
 
