@@ -6,6 +6,7 @@
 		<!-- Links -->
 		<link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="public/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="public/css/mediaqueries.css" />
 		<!-- Scripts -->
 		<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
@@ -35,18 +36,32 @@
 
 	<body>
 		<header>
-			<h1><a href="index.php">Mon Ebook</a></h1>
-			<nav>
-				<p><a href="index.php">Accueil</a></p>
-				<?php if(isset($_SESSION['auth'])): ?>
-					<p><a href="index.php?p=admin">Accéder à l'administration</a></p>
-					<p><a href="index.php?p=admin.disconnect">Se déconnecter</a></p>
-				<?php else: ?>
-					<p><a href="index.php?p=login">Login</a></p>
-				<?php endif; ?>
-			</nav>
-		</header>
+			<h1><a href="index.php"><span id="logo">Ebook </span>| Jean Forteroche</a></h1>
 
+			<div id="hamburger">
+				<nav>
+					<ul>
+						<li><a href="index.php">Accueil</a></li>
+		     	   		<?php if(isset($_SESSION['auth'])): ?>
+						<li>
+							<a href="index.php?p=admin">Accéder à l'administration</a>
+						</li>
+						<li>
+							<a href="index.php?p=admin.disconnect">Se déconnecter</a>
+						</li>
+						<?php else: ?>
+						<li><a href="index.php?p=login">Login</a></li>
+						<?php endif; ?>
+					</ul>
+	            </nav>
+				
+				<button id="hamburger-button">&#9776;</button>
+			</div>
+		</header>
+		
+		<div id="nav-bar"></div>
+		<div id="overlay"></div>
+		
 		<div id="content">
 			<?= $content; ?>
 		</div>
@@ -54,5 +69,7 @@
 		<footer>
 			<p>Ebook Jean Forteroche ©<em>Copyright Tous droits réservés</em></p>
 		</footer>
+		<!-- Fichier JS -->
+		<script type="text/javascript" src="public/js/main.js"></script>
 	</body>
 </html>

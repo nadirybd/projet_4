@@ -4,6 +4,8 @@
 body
 {
 	margin: 0;
+	width: 100%;
+	height: 100%;
 	font-family: 'Merriweather', serif;
 	background: url(../images/img1.jpg);
 	background-attachment: fixed;
@@ -25,48 +27,82 @@ a:hover
 *********************************************/
 header 
 {
-	box-shadow: 0 0 10px black;
-	width: 100%;
 	display: flex;
-	align-items: center;
 	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+	top: 0;
+	position: fixed;
+	box-sizing: border-box;
+	box-shadow: 0 0 10px black;
 	background-color: #343a40;
+	z-index: 99;
 }
 
 header h1 a
 {
-	color: white;
 	text-decoration: none!important;
+	font-size: 0.8em;
+	font-weight: normal;
+	color: white;
+	margin-left: 50px;
 }
 
-header nav
+#logo
 {
-	display: flex;
-	justify-content: space-between;
+	font-size: 1.3em;
+	font-weight: bold;
 }
 
-header nav p a
+header nav a
 {
 	color: white;
+	margin: 5px;
 	text-decoration: none;
-	margin: 10px;
 }
 
-header nav p a:hover
+header nav a:hover
 {
 	color: white;
 	font-weight: bold;
 	text-decoration: none;
 }
 
-/*******************************************
-*               CONTENU
-*********************************************/
+header li 
+{
+	line-height: 70px;
+	list-style: none;
+	display: inline;
+}
+
+/********** 
+ HAMBURGER
+***********/
+#hamburger
+{
+	display: flex;
+}
+
+#hamburger-button
+{
+	display: none;
+	border: none;
+	background: none;
+	padding: none;
+	font-weight: bold;
+	font-size: 2em;
+	color: white;
+	cursor: pointer;
+}
+
+/*******************************************************
+*               CONTENU DE LA DIV CONTENT
+*****************************************************/
 #content
 {
 	max-width: 1024px;
 	padding: 50px;
-	margin: 50px auto;
+	margin: 180px auto;
 	background-color: white;
 	box-shadow: 0 0 10px black;
 }

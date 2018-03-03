@@ -32,8 +32,8 @@ class CommentsModel extends Model
  				ON comments.post_id = posts.id
  			WHERE posts.id = '. $id .' ORDER BY comments.comment_date DESC');
  		return $comments;
- 	}
- 	
+ 	}	
+
  	/**
 	* @return $comments_report Obj stdClass
 	*/
@@ -65,7 +65,7 @@ class CommentsModel extends Model
 
  	/**
  	* @param $attributes array
- 	* @return $report stdClass
+ 	* @return $pull_report stdClass
  	*/
  	public function pullReport($attributes){
  		$pull_report = $this->MySql->prepare('UPDATE comments SET report_id = 0 WHERE id= ?', $attributes);
@@ -82,8 +82,8 @@ class CommentsModel extends Model
  	}
 
  	/**
-	* @param $attributes array
-	* @return $return Obj stdClass
+	* @param $attributes array 
+	* @return $delete
 	*/
 	public function deleteByPostId($attributes){
 		$delete = $this->MySql->prepare('DELETE FROM comments WHERE post_id=:post_id', $attributes);

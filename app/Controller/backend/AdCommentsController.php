@@ -14,7 +14,7 @@ class AdCommentsController extends Controller
 	protected $viewPath = 'backend';
 
 	/**
-	* 
+	* méthode admin qui affiche des liens vers les différentes pages de gestion des articles et du comptes admin et affiche les commentaires signalé
 	*/
 	public function admin(){
 		$comments = $this->commentsModel->selectByReport();
