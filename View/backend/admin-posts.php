@@ -1,6 +1,10 @@
 <div id="admin-post">
 	<h1>Gestionnaires des articles</h1>
 	
+	<p>
+		<a href="index.php?p=admin"><i class="fas fa-cog"></i> Revenir à l'administration général</a>
+	</p>
+
 	<table>
 		<thead>
 			<tr>
@@ -30,4 +34,15 @@
 			<?php endforeach; ?>
 		</tbody>
 	</table>
+	<p>
+		<?php for($page=1; $page<=$number_of_pages; $page++): ?>
+			<?php if($page == $current_page): ?>
+				<span><?= $page; ?></span>
+			<?php else: ?>
+			<a href="index.php?p=admin.posts&page=<?= $page; ?>">
+				<?= $page; ?>
+			</a> 
+			<?php endif; ?> |
+		<?php endfor; ?>
+	</p>
 </div>

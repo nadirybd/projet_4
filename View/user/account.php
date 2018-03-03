@@ -1,6 +1,10 @@
 <div id="account">
 	<h1>Gérer votre compte</h1>
 
+	<p>
+		<a href="index.php?p=admin"><i class="fas fa-cog"></i> Revenir à l'administration général</a>
+	</p>
+	
 	<?php if($error): ?>
 		<div class="error">Identifiant incorrect</div>	
 	<?php endif; ?>
@@ -22,4 +26,5 @@
 		<input type="submit" name="user-info" value="Confirmez les modifications" />
 	</p>
 	</form>
+
 </div>

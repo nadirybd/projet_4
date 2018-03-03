@@ -43,6 +43,9 @@ elseif(strpos($page, 'admin') === 0){
 			UserController::getInstance()->disconnect();
 		}
 		elseif ($page === 'admin.posts') {
+			if(!isset($_GET['page'])){
+				$_GET['page'] = 1;
+			}
 			AdPostsController::getInstance()->adminPosts();
 		}
 		elseif ($page === 'admin.post.edit') {

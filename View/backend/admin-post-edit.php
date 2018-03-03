@@ -14,4 +14,8 @@
 
 		<p><input type="submit" name="edit" /></p>
 	</form>
+
+	<p>
+		<a href="index.php?p=admin.posts"><i class="fas fa-cog"></i> Revenir à l'administration des articles</a>
+	</p>
 </div>

@@ -18,13 +18,27 @@ class AdPostsController extends Controller
 	*
 	*/
 	public function adminPosts(){
-		$posts = $this->postsModel->all();
+		$posts_per_page = 6;
+		$posts_selected = $this->postsModel->all();
+		$number_of_posts = count($posts_selected);
+		$number_of_pages = ceil($number_of_posts / $posts_per_page);
+		$current_page = $_GET['page'];
+
+		if(intval($_GET['page']) && isset($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] <= $number_of_pages){
+			$from = $posts_per_page * ($_GET['page'] - 1);
+			$posts = $this->postsModel->postsLimit($from, $posts_per_page);
+		} else {
+			$_GET['page'] = 1;
+			$from = $posts_per_page * ($_GET['page'] - 1);
+			$posts = $this->postsModel->postsLimit($from, $posts_per_page);
+		}
+
 		if(isset($_POST['send_delete'])){
 			$this->postsModel->delete([':id' => $_POST['delete']]);
 			$this->commentsModel->deleteByPostId([':post_id' => $_POST['delete']]);
-			header('location: index.php?p=admin.posts');
+			header('location: index.php?p=admin.posts&page='. $_GET['page']);
 		}
-		$this->render('admin-posts', compact('posts'));
+		$this->render('admin-posts', compact('posts', 'number_of_pages', 'current_page'));
 	}
 
 	/**

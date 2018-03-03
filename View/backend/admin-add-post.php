@@ -1,6 +1,6 @@
 <div id="add-post">
 	<h1>Ajoutez un nouvel article</h1>
-
+	
 	<form id="add-post-form" method="post">
 		<p>
 			<label for="title">Titre :</label><br/>
@@ -12,4 +12,8 @@
 
 		<p><input type="submit" name="add" /></p>
 	</form>
+	
+	<p>
+		<a href="index.php?p=admin"><i class="fas fa-cog"></i> Revenir à l'administration général</a>
+	</p>
 </div>
