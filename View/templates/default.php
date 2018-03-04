@@ -38,7 +38,7 @@
 		<header>
 			<div id="menu">
 				<div id="mobile-view">	
-					<h1><a href="index.php"><span id="logo">Ebook </span>| Jean Forteroche</a></h1>
+					<p><a href="index.php"><img src="public/images/logo.png" alt="book" /></a></p>
 					<button id="hamburger-button">&#9776;</button>
 				</div>
 				<nav>

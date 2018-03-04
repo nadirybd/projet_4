@@ -22,6 +22,7 @@ a:hover
 	text-decoration: underline;
 }
 
+
 /*******************************************
 *                   HEADER
 *********************************************/
@@ -40,14 +41,6 @@ header
 {
 	display: flex;
 	justify-content: space-around;
-}
-#menu h1 a
-{
-	text-decoration: none!important;
-	font-size: 0.8em;
-	font-weight: normal;
-	color: white;
-	margin-left: 50px;
 }
 
 #logo

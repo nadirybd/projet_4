@@ -21,16 +21,18 @@
 					<td>
 						<div><?= strip_tags(substr($post->content, 0, 400)); ?></div><span> ...</span></td>
 					<td>
-						<p>
-							<a class="button" href="index.php?p=admin.post.edit&id=<?= $post->id; ?>">Editer</a>
-						</p>
-
-						<form class="delete" method="post">
+						<div id="posts-button">
 							<p>
-								<input type="hidden" name="delete" value="<?= $post->id; ?>" />
-								<input type="submit" name="send_delete" value="Supprimer" />
+								<a class="button" href="index.php?p=admin.post.edit&id=<?= $post->id; ?>">Editer</a>
 							</p>
-						</form>
+
+							<form class="delete" method="post">
+								<p>
+									<input type="hidden" name="delete" value="<?= $post->id; ?>" />
+									<input type="submit" name="send_delete" value="Supprimer" />
+								</p>
+							</form>
+						<div>
 					</td>
 				</tr>
 			<?php endforeach; ?>

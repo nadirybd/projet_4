@@ -1,3 +1,6 @@
+/**********************************
+		SCREEN 1024PX
+***********************************/
 @media all and (max-width: 1024px) 
 {
 	/**************
@@ -56,6 +59,9 @@
 	}
 }
 
+/**********************************
+		SCREEN 768PX
+***********************************/
 @media all and (max-width: 768px) 
 {
 	/************
@@ -65,18 +71,62 @@
 		flex-direction: column;
 	}
 
+	#edit-form, #add-post-form, #account-form, #login-form, #form-comment{
+		width: 100%;
+    	box-sizing: border-box;
+	}
+
+	#edit-form textarea, #add-post-form textarea, #form-comment textarea{
+		box-sizing: border-box;
+		width: 100%;
+	}
 }
 
+/**********************************
+		SCREEN 598PX
+***********************************/
 @media all and (max-width: 598px) 
 {
-	/************
-		
-	*************/
+	#content{
+		padding: 5px;
+	}
+	/****************
+		LES TITRES	
+	*****************/
+
 	#post h1, #accueil h1, #admin-interface h1, #admin-post h1,
 	#all_comments h1, #content h1, #edit-selected h1, #add-post h1, 
 	#account h1 {
-
+		padding: 5px;
+		box-sizing: border-box;
+		word-wrap: break-word;
 	}
+
+	#admin-interface aside{
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+/**********************************
+		SCREEN 448PX
+***********************************/
+@media all and (max-width: 448px) 
+{
+	/************
+		HEADER
+	*************/
+	 #mobile-view{
+		flex-direction: column;
+	}
+
+	#menu p{
+		text-align: center;
+	}
+
+	/**************
+		TABLEAU
+	***************/
 
 	table, thead, tbody, tr{
 		display: flex;
@@ -86,9 +136,13 @@
 	tr {
 		padding: 0!important;
 	}
+	td {
+		text-align: center;
+	}
 
-	#admin-interface aside{
+	#posts-button {
 		display: flex;
 		flex-direction: column;
+		align-items: center;
 	}
 }
