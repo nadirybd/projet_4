@@ -36,9 +36,11 @@
 
 	<body>
 		<header>
-			<h1><a href="index.php"><span id="logo">Ebook </span>| Jean Forteroche</a></h1>
-
-			<div id="hamburger">
+			<div id="menu">
+				<div id="mobile-view">	
+					<h1><a href="index.php"><span id="logo">Ebook </span>| Jean Forteroche</a></h1>
+					<button id="hamburger-button">&#9776;</button>
+				</div>
 				<nav>
 					<ul>
 						<li><a href="index.php">Accueil</a></li>
@@ -54,13 +56,10 @@
 						<?php endif; ?>
 					</ul>
 	            </nav>
-				
-				<button id="hamburger-button">&#9776;</button>
 			</div>
 		</header>
 		
-		<div id="nav-bar"></div>
-		<div id="overlay"></div>
+			<div id="overlay"></div>
 		
 		<div id="content">
 			<?= $content; ?>

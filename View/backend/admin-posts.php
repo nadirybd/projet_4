@@ -26,8 +26,10 @@
 						</p>
 
 						<form class="delete" method="post">
-							<input type="hidden" name="delete" value="<?= $post->id; ?>" />
-							<input type="submit" name="send_delete" value="Supprimer" />
+							<p>
+								<input type="hidden" name="delete" value="<?= $post->id; ?>" />
+								<input type="submit" name="send_delete" value="Supprimer" />
+							</p>
 						</form>
 					</td>
 				</tr>
