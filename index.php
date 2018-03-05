@@ -1,5 +1,5 @@
 <?php 
-require('app/App.php');
+require(__DIR__ .'/app/App.php');
 App::load();
 
 use App\Controller\User\UserController;
@@ -30,6 +30,9 @@ elseif ($page === 'post') {
 }
 elseif ($page === 'comments') {
 	CommentsController::getInstance()->comments();
+}
+elseif ($page === 'search') {
+	PostsController::getInstance()->search();
 }
 elseif ($page === 'login') {
 	UserController::getInstance()->login();

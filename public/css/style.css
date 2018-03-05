@@ -4,7 +4,6 @@
 body
 {
 	margin: 0;
-	width: 100%;
 	height: 100%;
 	font-family: 'Merriweather', serif;
 	background: url(../images/img1.jpg);
@@ -22,6 +21,56 @@ a:hover
 	text-decoration: underline;
 }
 
+/***************
+	LES TITRES
+****************/
+
+#post h1, #accueil h1, #admin-interface h1, #admin-post h1,
+#all_comments h1, #content h1, #edit-selected h1, #add-post h1, 
+#account h1 {
+	padding: 5px;
+	box-sizing: border-box;
+	overflow-wrap: break-word;
+}
+
+p, div 
+{
+	overflow-wrap: break-word;
+}
+
+/*****************
+	SEARCH BAR
+******************/
+#search-form
+{
+	display: inline;
+}
+#search-form input
+{
+	width: 100px;
+	border: 2px solid white;
+	border-radius: 15px 0px;
+	padding-left: 10px;
+	outline:  none;
+}
+#search-form input:focus
+{
+	width: 150px;
+}
+
+#menu li:last-child
+{
+	margin-left: 10px;
+}
+
+#search-form button
+{
+	background-color: transparent;
+	border: none;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+}
 
 /*******************************************
 *                   HEADER
@@ -117,16 +166,16 @@ header
 	font-weight: bold;
 }
 
-/**************
-	ACCUEIL
-***************/
-#accueil
+/*************************
+	ACCUEIL & RECHERCHE
+**************************/
+#accueil, #search-result
 {
 	display: flex;
 	flex-direction: column;
 }
 
-#accueil h1
+#accueil h1, #search-result h1
 {
 	margin-bottom: 100px;
 	background-color: #343a40;
@@ -134,7 +183,7 @@ header
 	padding: 30px;
 }
 
-#accueil section
+#accueil section,  #search-result section
 {
 	background-color: #e8e8e8;
 	padding: 20px;

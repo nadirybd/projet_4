@@ -9,7 +9,7 @@ function activateHamburger(){
 	burgerButton.addEventListener('click', function(e) {
 		e.preventDefault();
 
-		navMenu.classList.toggle(mobileMenu)
+		navMenu.classList.toggle(mobileMenu);
 		overlay.classList.toggle(class_overlay);
 	});
 

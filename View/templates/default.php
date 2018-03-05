@@ -54,12 +54,19 @@
 						<?php else: ?>
 						<li><a href="index.php?p=login">Login</a></li>
 						<?php endif; ?>
+						<li>
+							<form action="index.php?p=search" method="post" id="search-form" />
+							<button type="submit" name="send-search"><i class="fas fa-search"></i></button>
+							<input type="search" name="q" placeholder="Rechercher" /><br />
+							</form>
+						</li>
 					</ul>
 	            </nav>
 			</div>
 		</header>
 		
 			<div id="overlay"></div>
+
 		
 		<div id="content">
 			<?= $content; ?>

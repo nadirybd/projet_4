@@ -10,7 +10,7 @@
 		<p>Contenu de l'article :</p>
 		<textarea id="mytextarea" cols="50" rows="30" name="addContent"></textarea>
 
-		<p><input type="submit" name="add" /></p>
+		<p><input type="submit" name="add" value="Ajouter"/></p>
 	</form>
 	
 	<p>

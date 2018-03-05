@@ -99,7 +99,7 @@
 	#account h1 {
 		padding: 5px;
 		box-sizing: border-box;
-		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 
 	#admin-interface aside{

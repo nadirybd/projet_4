@@ -34,6 +34,7 @@ class PostsController extends Controller
 
 		$current_page = $_GET['page'];
 
+		
 		$this->render('home', compact('posts', 'posts_per_page', 'number_of_posts', 'number_of_pages', 'current_page'));
 	}
 
@@ -67,6 +68,20 @@ class PostsController extends Controller
 		}
 		
 		$this->render('post', compact('post', 'max', 'comments'));
+	}
+
+	public function search(){
+		if(isset($_POST['send-search'])){
+			if(!empty($_POST['q']) && strlen($_POST['q']) > 3){
+				$searchPost = $this->postsModel->searchPost(addslashes(htmlspecialchars($_POST['q'])));
+				if(count($searchPost) === 0 ){
+					$unknown = 'Aucun résultat pour : ' . htmlspecialchars($_POST['q']);
+				}
+			} else {
+				header('location: index.php?p=home');
+			}
+		}
+		$this->render('search', compact('searchPost','unknown'));
 	}
 
 	/**

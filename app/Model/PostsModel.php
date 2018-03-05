@@ -7,7 +7,7 @@ use Core\Model\Model;
 class PostsModel extends Model
 {
 	/**
-	* @return $posts Obj stdClass
+	* @return $posts requête Obj stdClass
 	*/
 	public function all(){
 		$posts = $this->MySql->query('SELECT id, title, content, DATE_FORMAT(creation_date, "%d/%m/%Y") as date_fr FROM posts');
@@ -16,7 +16,7 @@ class PostsModel extends Model
 
 	/**
 	* @param $id int
-	* @return $post Obj stdClass
+	* @return $post requête Obj stdClass
 	*/
 	public function select($id){
 		$post = $this->MySql->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, "%d/%m/%Y") as date_fr FROM posts WHERE id= ?', $id, true);
@@ -26,7 +26,7 @@ class PostsModel extends Model
 	/**
 	* @param $from int
 	* @param $to int
-	* @return $postLimit Obj stdClass
+	* @return $postLimit requête Obj stdClass
 	*/
 	public function postsLimit($from, $to){
 		$postLimit = $this->MySql->query('SELECT id, title, content, DATE_FORMAT(creation_date, "%d/%m/%Y") as date_fr FROM posts ORDER BY id ASC LIMIT '. $from . ',' . $to);
@@ -34,7 +34,30 @@ class PostsModel extends Model
 	}
 
 	/**
-	* @return $max Obj stdClass
+	* @param $search str
+	* @return $searchPost requête Obj stdClass
+	*/
+	public function searchPost($search){
+		$statement = 'SELECT * FROM posts';
+		$words = explode(' ', $search);
+		$i = 0;
+		foreach($words as $word) {
+			if(strlen($word) > 3) {
+				if($i == 0){
+					$statement .= ' WHERE ';
+				} else {
+					$statement .= ' AND ';
+				}
+				$statement .= ' concat(title, content) LIKE "%'. $word .'%"';
+				$i++;
+			}
+		}
+		$searchPost = $this->MySql->query($statement);
+		return $searchPost;
+	}
+
+	/**
+	* @return $max requête Obj stdClass
 	*/
 	public function max(){
 		$max = $this->MySql->query('SELECT MAX(id) as maxId FROM posts', true);
@@ -42,7 +65,7 @@ class PostsModel extends Model
 	}
 
 	/**
- 	* @return $min
+ 	* @return $min requête Obj stdClass
  	*/
 	public function min(){
 		$min = $this->MySql->query('SELECT MIN(id) as minId FROM posts', true);
@@ -51,7 +74,7 @@ class PostsModel extends Model
 
 	/**
 	* @param $attributes array
-	* @return $return Obj stdClass
+	* @return $update requête Obj stdClass
 	*/
 	public function update($attributes){
 		$update = $this->MySql->prepare('UPDATE posts SET title = :title, content= :content WHERE id=:id', $attributes);
@@ -60,7 +83,7 @@ class PostsModel extends Model
 
 	/**
 	* @param $attributes array
-	* @return $return Obj stdClass
+	* @return $delete requête Obj stdClass
 	*/
 	public function delete($attributes){
 		$delete = $this->MySql->prepare('DELETE FROM posts WHERE id=:id', $attributes);
@@ -69,7 +92,7 @@ class PostsModel extends Model
 
 	/**
 	* @param $attributes array
-	* @return $return Obj stdClass
+	* @return $add requête Obj stdClass
 	*/
 	public function add($attributes){
 		$add = $this->MySql->prepare('INSERT INTO posts(title, content, creation_date) VALUES(:title, :content, NOW())', $attributes);
