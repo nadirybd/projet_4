@@ -8,7 +8,7 @@
 	<form id="login-form" method="post">
 		<p>
 			<label>Nom de l'administrateur :</label><br />
-			<input type="pseudo" name="user" required/>
+			<input type="text" name="user" required/>
 		</p>
 		<p>
 			<label>Mot de passe :</label><br />

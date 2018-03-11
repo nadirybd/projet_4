@@ -18,7 +18,7 @@ class MysqlDatabase extends Database
 	*/
 	public static function getInstance(){
 		if(self::$_instance === null){
-			return self::$_instance = new MysqlDatabase();
+			self::$_instance = new MysqlDatabase();
 		}
 		return self::$_instance;
 	}

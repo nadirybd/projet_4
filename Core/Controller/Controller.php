@@ -14,7 +14,6 @@ class Controller
 	protected $postsModel;
 	protected $commentsModel;
 	protected $auth;
-
 	protected $viewPath;
 
 	/**

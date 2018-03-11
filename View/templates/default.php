@@ -57,7 +57,7 @@
 						<li>
 							<form action="index.php?p=search" method="post" id="search-form" />
 							<button type="submit" name="send-search"><i class="fas fa-search"></i></button>
-							<input type="search" name="q" placeholder="Rechercher" /><br />
+							<input type="text" name="q" placeholder="Rechercher" /><br />
 							</form>
 						</li>
 					</ul>

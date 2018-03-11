@@ -12,7 +12,7 @@
 	<form id="account-form" method="post">
 	<p>
 		<label for="name">Votre nom d'administrateur :</label><br/>
-		<input type="pseudo" name="admin_name" id="name" value="<?= $pass->name; ?>"/>
+		<input type="text" name="admin_name" id="name" value="<?= $pass->name; ?>"/>
 	</p>
 	<p>
 		<label for="old_password">Entrez votre ancien mot de passe :</label><br/>

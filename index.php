@@ -25,6 +25,9 @@ if($page === 'home'){
 	}
 	PostsController::getInstance()->home();
 }
+elseif ($page === '404') {
+	UserController::getInstance()->notFound();
+}
 elseif ($page === 'post') {
 	PostsController::getInstance()->post();
 }
@@ -68,3 +71,4 @@ elseif(strpos($page, 'admin') === 0){
 } else {
 	UserController::getInstance()->notFound();
 }
+
